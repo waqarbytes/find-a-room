@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Listings - Find A Room</title>
+    <meta name="description" content="Browse our selection of quality shared accommodation across New Zealand - Find your perfect room with Find A Room.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .filter-panel {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .range-value {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+        }
+        
+        .filters-mobile {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            display: none;
+            z-index: 100;
+        }
+        
+        @media (max-width: 768px) {
+            .filters-desktop {
+                display: none;
+            }
+            
+            .filters-mobile {
+                display: block;
+            }
+            
+            .mobile-filters-panel {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+                z-index: 1000;
+                padding: 1.5rem;
+                overflow-y: auto;
+                transform: translateY(100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .mobile-filters-panel.active {
+                transform: translateY(0);
+            }
+            
+            .mobile-filters-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.jpg" alt="Find A Room Logo">
+                    <span class="logo-text">Find A Room</span>
+                </a>
+                
+                <button class="mobile-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Landlords <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <!-- <a href="landlords.html" class="dropdown-item">Overview</a> -->
+                                <a href="owner-portal.html" class="dropdown-item">Owner Portal</a>
+                                <a href="payment-collection.html" class="dropdown-item">Payment Collection</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Tenants <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="tenants.html" class="dropdown-item">Overview</a>
+                                <a href="https://www.trademe.co.nz/a/search?member_listing=8900509" class="dropdown-item">Rental Listings</a>
+                                <a href="tenant-services.html" class="dropdown-item">Tenant Services</a>
+                                <a href="maintenance-request.html" class="dropdown-item">Maintenance Request</a>
+                                <a href="notice-request.html" class="dropdown-item">Notice Request</a>
+                                <a href="notice-vacate.html" class="dropdown-item">Notice to Vacate</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Find Your Perfect Shared Space</h1>
+                <p>Browse our selection of quality shared accommodations across New Zealand.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-4-1" style="grid-template-columns: 1fr 3fr;">
+                <!-- Filters - Desktop -->
+                <div class="filters-desktop">
+                    <div class="filter-panel">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <h2 style="font-size: 1.5rem;">Search Properties</h2>
+                            <button id="clear-filters-desktop" class="btn" style="color: var(--gray-text); padding: 0.5rem; display: flex; align-items: center;">
+                                <i class="fas fa-times" style="margin-right: 0.5rem;"></i> Clear Filters
+                            </button>
+                        </div>
+                        
+                        <form id="property-filter-form-desktop">
+                            <div class="form-group">
+                                <label for="location-desktop" class="form-label">Location</label>
+                                <input type="text" id="location-desktop" name="location" class="form-control" placeholder="City or suburb">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="bedrooms-desktop" class="form-label">Bedrooms</label>
+                                <select id="bedrooms-desktop" name="bedrooms" class="form-control">
+                                    <option value="">Any</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4+</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="price-range-desktop" class="form-label">Max Price (per week)</label>
+                                <input type="range" id="price-range-desktop" name="price" min="200" max="500" step="10" value="300" class="form-control">
+                                <div class="range-value">$<span id="price-value-desktop">300</span></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Amenities</label>
+                                <div style="display: grid; grid-template-columns: 1fr; gap: 0.5rem;">
+                                    <div class="form-check">
+                                        <input type="checkbox" id="garden-desktop" name="amenities" value="garden" class="form-check-input">
+                                        <label for="garden-desktop">Garden</label>
+                                    </div>
+                                    
+                                    <div class="form-check">
+                                        <input type="checkbox" id="gym-desktop" name="amenities" value="gym" class="form-check-input">
+                                        <label for="gym-desktop">Gym</label>
+                                    </div>
+                                    
+                                    <div class="form-check">
+                                        <input type="checkbox" id="parking-desktop" name="amenities" value="parking" class="form-check-input">
+                                        <label for="parking-desktop">Parking</label>
+                                    </div>
+                                    
+                                    <div class="form-check">
+                                        <input type="checkbox" id="pets-desktop" name="amenities" value="pets" class="form-check-input">
+                                        <label for="pets-desktop">Pet Friendly</label>
+                                    </div>
+                                    
+                                    <div class="form-check">
+                                        <input type="checkbox" id="furnished-desktop" name="amenities" value="furnished" class="form-check-input">
+                                        <label for="furnished-desktop">Furnished</label>
+                                    </div>
+                                    
+                                    <div class="form-check">
+                                        <input type="checkbox" id="balcony-desktop" name="amenities" value="balcony" class="form-check-input">
+                                        <label for="balcony-desktop">Balcony</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">
+                                <i class="fas fa-search" style="margin-right: 0.5rem;"></i> Search
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Property Listings -->
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h2>Available Properties (<span id="result-count">6</span>)</h2>
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <select id="sort-by" class="form-control" style="width: auto;">
+                                <option value="price-asc">Price: Low to High</option>
+                                <option value="price-desc">Price: High to Low</option>
+                                <option value="date-desc">Newest First</option>
+                                <option value="bedrooms-asc">Bedrooms: Low to High</option>
+                                <option value="bedrooms-desc">Bedrooms: High to Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="property-grid grid grid-3">
+                        <!-- Property 1 -->
+                        <div class="property-card" data-location="Auckland Central" data-bedrooms="3" data-price="250" data-amenities="shared kitchen">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Modern City Apartment" class="property-img">
+                            <div class="property-details">
+                                <h3 class="property-title">Modern City Apartment</h3>
+                                <p class="property-location"><i class="fas fa-map-marker-alt"></i> Auckland Central</p>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-bed"></i> 3 Bedrooms</span>
+                                    <span class="property-feature"><i class="fas fa-calendar"></i> Available Now</span>
+                                </div>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-utensils"></i> Shared Kitchen</span>
+                                </div>
+                                <p class="property-price">$250 /week</p>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#property-modal" style="width: 100%;">View Details</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Property 2 -->
+                        <div class="property-card" data-location="Wellington" data-bedrooms="4" data-price="300" data-amenities="garden">
+                            <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Spacious Shared House" class="property-img">
+                            <div class="property-details">
+                                <h3 class="property-title">Spacious Shared House</h3>
+                                <p class="property-location"><i class="fas fa-map-marker-alt"></i> Wellington</p>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-bed"></i> 4 Bedrooms</span>
+                                    <span class="property-feature"><i class="fas fa-calendar"></i> April 1st</span>
+                                </div>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-leaf"></i> Garden</span>
+                                </div>
+                                <p class="property-price">$300 /week</p>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#property-modal" style="width: 100%;">View Details</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Property 3 -->
+                        <div class="property-card" data-location="Christchurch" data-bedrooms="2" data-price="350" data-amenities="gym">
+                            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Luxury Apartment Share" class="property-img">
+                            <div class="property-details">
+                                <h3 class="property-title">Luxury Apartment Share</h3>
+                                <p class="property-location"><i class="fas fa-map-marker-alt"></i> Christchurch</p>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-bed"></i> 2 Bedrooms</span>
+                                    <span class="property-feature"><i class="fas fa-calendar"></i> May 15th</span>
+                                </div>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-dumbbell"></i> Gym Access</span>
+                                </div>
+                                <p class="property-price">$350 /week</p>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#property-modal" style="width: 100%;">View Details</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Property 4 -->
+                        <div class="property-card" data-location="Hamilton" data-bedrooms="1" data-price="220" data-amenities="balcony">
+                            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cozy Studio Apartment" class="property-img">
+                            <div class="property-details">
+                                <h3 class="property-title">Cozy Studio Apartment</h3>
+                                <p class="property-location"><i class="fas fa-map-marker-alt"></i> Hamilton</p>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-bed"></i> 1 Bedroom</span>
+                                    <span class="property-feature"><i class="fas fa-calendar"></i> June 1st</span>
+                                </div>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-door-open"></i> Private Balcony</span>
+                                </div>
+                                <p class="property-price">$220 /week</p>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#property-modal" style="width: 100%;">View Details</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Property 5 -->
+                        <div class="property-card" data-location="Tauranga" data-bedrooms="4" data-price="370" data-amenities="beach access">
+                            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Beachfront Shared House" class="property-img">
+                            <div class="property-details">
+                                <h3 class="property-title">Beachfront Shared House</h3>
+                                <p class="property-location"><i class="fas fa-map-marker-alt"></i> Tauranga</p>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-bed"></i> 4 Bedrooms</span>
+                                    <span class="property-feature"><i class="fas fa-calendar"></i> July 1st</span>
+                                </div>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-water"></i> Beach Access</span>
+                                </div>
+                                <p class="property-price">$370 /week</p>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#property-modal" style="width: 100%;">View Details</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Property 6 -->
+                        <div class="property-card" data-location="Dunedin" data-bedrooms="2" data-price="280" data-amenities="city views">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Modern Loft with Views" class="property-img">
+                            <div class="property-details">
+                                <h3 class="property-title">Modern Loft with Views</h3>
+                                <p class="property-location"><i class="fas fa-map-marker-alt"></i> Dunedin</p>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-bed"></i> 2 Bedrooms</span>
+                                    <span class="property-feature"><i class="fas fa-calendar"></i> Available Now</span>
+                                </div>
+                                <div class="property-features">
+                                    <span class="property-feature"><i class="fas fa-mountain"></i> City Views</span>
+                                </div>
+                                <p class="property-price">$280 /week</p>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#property-modal" style="width: 100%;">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <p>Looking for a specific type of accommodation? <a href="index.html#waitlist">Join our waitlist</a> to be notified when new properties become available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Filters Button -->
+    <div class="filters-mobile">
+        <button id="show-filters-mobile" class="btn btn-primary" style="width: 100%;">
+            <i class="fas fa-sliders-h" style="margin-right: 0.5rem;"></i> Filters
+        </button>
+    </div>
+
+    <!-- Mobile Filters Panel -->
+    <div id="mobile-filters-panel" class="mobile-filters-panel">
+        <div class="mobile-filters-header">
+            <h2>Property Filters</h2>
+            <button id="close-filters-mobile" class="btn">
+                <i class="fas fa-times" style="font-size: 1.5rem;"></i>
+            </button>
+        </div>
+        
+        <form id="property-filter-form-mobile">
+            <div class="form-group">
+                <label for="location-mobile" class="form-label">Location</label>
+                <input type="text" id="location-mobile" name="location" class="form-control" placeholder="City or suburb">
+            </div>
+            
+            <div class="form-group">
+                <label for="bedrooms-mobile" class="form-label">Bedrooms</label>
+                <select id="bedrooms-mobile" name="bedrooms" class="form-control">
+                    <option value="">Any</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4+</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="price-range-mobile" class="form-label">Max Price (per week)</label>
+                <input type="range" id="price-range-mobile" name="price" min="200" max="500" step="10" value="300" class="form-control">
+                <div class="range-value">$<span id="price-value-mobile">300</span></div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Amenities</label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <div class="form-check">
+                        <input type="checkbox" id="garden-mobile" name="amenities" value="garden" class="form-check-input">
+                        <label for="garden-mobile">Garden</label>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="gym-mobile" name="amenities" value="gym" class="form-check-input">
+                        <label for="gym-mobile">Gym</label>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="parking-mobile" name="amenities" value="parking" class="form-check-input">
+                        <label for="parking-mobile">Parking</label>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="pets-mobile" name="amenities" value="pets" class="form-check-input">
+                        <label for="pets-mobile">Pet Friendly</label>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="furnished-mobile" name="amenities" value="furnished" class="form-check-input">
+                        <label for="furnished-mobile">Furnished</label>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="balcony-mobile" name="amenities" value="balcony" class="form-check-input">
+                        <label for="balcony-mobile">Balcony</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <button type="button" id="clear-filters-mobile" class="btn btn-outline" style="flex: 1;">Clear</button>
+                <button type="submit" class="btn btn-secondary" style="flex: 1;">Apply Filters</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Property Modal -->
+    <div id="property-modal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5);">
+        <div class="modal-content" style="background-color: white; margin: 10% auto; padding: 0; border-radius: 10px; max-width: 800px; overflow: hidden; position: relative;">
+            <button class="modal-close" style="position: absolute; top: 10px; right: 10px; background: white; border: none; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.5rem; z-index: 10;">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-body" style="display: flex; flex-direction: column;">
+                <div class="property-image-slider" style="height: 400px; position: relative;">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Property Image" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="position: absolute; top: 10px; left: 10px; background-color: var(--accent-color); color: white; padding: 0.5rem 1rem; border-radius: 5px;">
+                        Available Now
+                    </div>
+                </div>
+                
+                <div style="padding: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h2 style="margin-bottom: 0.5rem;">Modern City Apartment</h2>
+                            <p style="display: flex; align-items: center; color: var(--gray-text);">
+                                <i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Auckland Central
+                            </p>
+                        </div>
+                        <div>
+                            <p class="property-price" style="font-size: 1.5rem; margin: 0;">$250 /week</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-bed" style="margin-right: 0.5rem; color: var(--primary-color);"></i>
+                            <span>3 Bedrooms</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-bath" style="margin-right: 0.5rem; color: var(--primary-color);"></i>
+                            <span>2 Bathrooms</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-car" style="margin-right: 0.5rem; color: var(--primary-color);"></i>
+                            <span>1 Parking Space</span>
+                        </div>
+                    </div>
+                    
+                    <h3>Description</h3>
+                    <p style="margin-bottom: 1.5rem;">
+                        This modern apartment in the heart of Auckland Central offers comfortable shared living with all amenities nearby. The apartment features 3 bedrooms, 2 bathrooms, a spacious living area, and a fully equipped kitchen. Located just minutes from public transport, shops, cafes, and universities.
+                    </p>
+                    
+                    <h3>Features & Amenities</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="margin-right: 0.5rem; color: var(--accent-color);"></i>
+                            <span>Shared Kitchen</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="margin-right: 0.5rem; color: var(--accent-color);"></i>
+                            <span>Furnished Common Areas</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="margin-right: 0.5rem; color: var(--accent-color);"></i>
+                            <span>High-Speed WiFi</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="margin-right: 0.5rem; color: var(--accent-color);"></i>
+                            <span>Laundry Facilities</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="margin-right: 0.5rem; color: var(--accent-color);"></i>
+                            <span>City Views</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="margin-right: 0.5rem; color: var(--accent-color);"></i>
+                            <span>Close to Transport</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <a href="index.html#waitlist" class="btn btn-secondary" style="flex: 1;">Express Interest</a>
+                        <a href="contact.html" class="btn btn-outline" style="flex: 1;">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Find A Room</h4>
+                    <p>Connecting quality tenants with great shared living spaces across New Zealand.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1D2576aVEp/?mibextid=wwXIfr" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <!-- <li><a href="landlords.html">Landlord Services</a></li> -->
+                        <li><a href="tenants.html">Tenant Resources</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.trademe.co.nz/a/search?member_listing=8900509">Rental Listings</a></li>
+                        <li><a href="owner-portal.html">Owner Portal</a></li>
+                        <li><a href="payment-collection.html">Payment Collection</a></li>
+                        <li><a href="maintenance-request.html">Maintenance Requests</a></li>
+                        <li><a href="tenant-services.html">Tenant Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 
+                            355A, Maunganui Road Mount Maunganui, 3116 Tauranga
+                            NEW ZEALAND</li>
+                        <li><i class="fas fa-phone"></i> +64 21 1012737</li>
+                        <li><i class="fas fa-envelope"></i> support@findaroom.co.nz</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Find A Room. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Price Range Inputs
+        const priceRangeDesktop = document.getElementById('price-range-desktop');
+        const priceValueDesktop = document.getElementById('price-value-desktop');
+        const priceRangeMobile = document.getElementById('price-range-mobile');
+        const priceValueMobile = document.getElementById('price-value-mobile');
+        
+        if (priceRangeDesktop && priceValueDesktop) {
+            priceRangeDesktop.addEventListener('input', function() {
+                priceValueDesktop.textContent = this.value;
+            });
+        }
+        
+        if (priceRangeMobile && priceValueMobile) {
+            priceRangeMobile.addEventListener('input', function() {
+                priceValueMobile.textContent = this.value;
+            });
+        }
+        
+        // Mobile Filters
+        const showFiltersMobile = document.getElementById('show-filters-mobile');
+        const closeFiltersMobile = document.getElementById('close-filters-mobile');
+        const mobileFiltersPanel = document.getElementById('mobile-filters-panel');
+        
+        if (showFiltersMobile && mobileFiltersPanel) {
+            showFiltersMobile.addEventListener('click', function() {
+                mobileFiltersPanel.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        if (closeFiltersMobile && mobileFiltersPanel) {
+            closeFiltersMobile.addEventListener('click', function() {
+                mobileFiltersPanel.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        }
+        
+        // Property Modal
+        const propertyViewButtons = document.querySelectorAll('[data-toggle="modal"]');
+        const propertyModal = document.getElementById('property-modal');
+        const modalClose = document.querySelector('.modal-close');
+        
+        if (propertyViewButtons && propertyModal) {
+            propertyViewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    propertyModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+        }
+        
+        if (modalClose && propertyModal) {
+            modalClose.addEventListener('click', function() {
+                propertyModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            window.addEventListener('click', function(event) {
+                if (event.target === propertyModal) {
+                    propertyModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
