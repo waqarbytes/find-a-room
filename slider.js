@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             image: 'slider2.jpeg',
             title: 'Property Management Solutions',
             description: 'Comprehensive property management .',
-            primaryButtonText: 'Owner Services',
+            primaryButtonText: 'Tenant Services',
             primaryButtonLink: 'tenant-services.html',
             secondaryButtonText: 'Learn More',
             secondaryButtonLink: 'about.html'
