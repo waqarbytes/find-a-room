@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Request - Find A Room</title>
+    <meta name="description" content="Submit a notice request for lease changes, extensions, or special accommodations with Find A Room - making your tenancy smooth and hassle-free.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="logo.jpg" alt="Find A Room Logo">
+                    <span class="logo-text">Find A Room</span>
+                </a>
+                
+                <button class="mobile-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Landlords <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <!-- <a href="landlords.html" class="dropdown-item">Overview</a> -->
+                                <a href="owner-portal.html" class="dropdown-item">Owner Portal</a>
+                                <a href="payment-collection.html" class="dropdown-item">Payment Collection</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Tenants <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="tenants.html" class="dropdown-item">Overview</a>
+                                <a href="https://www.trademe.co.nz/a/search?member_listing=8900509" class="dropdown-item">Rental Listings</a>
+                                <a href="tenant-services.html" class="dropdown-item">Tenant Services</a>
+                                <a href="maintenance-request.html" class="dropdown-item">Maintenance Request</a>
+                                <!-- <a href="notice-request.html" class="dropdown-item">Notice Request</a> -->
+                                <a href="notice-vacate.html" class="dropdown-item">Notice to Vacate</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Notice Request</h1>
+                <p>Submit requests for lease changes, extensions, or special accommodations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div class="grid grid-2">
+                    <div class="card">
+                        <div style="display: flex; align-items: flex-start;">
+                            <div style="width: 50px; height: 50px; border-radius: 10px; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-calendar" style="color: var(--primary-color);"></i>
+                            </div>
+                            <div>
+                                <h3>Lease Extensions</h3>
+                                <p>
+                                    Want to stay longer? Request a lease extension or renewal before your current lease expires.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div style="display: flex; align-items: flex-start;">
+                            <div style="width: 50px; height: 50px; border-radius: 10px; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-file-contract" style="color: var(--primary-color);"></i>
+                            </div>
+                            <div>
+                                <h3>Lease Modifications</h3>
+                                <p>
+                                    Need to add or remove a roommate? Request changes to your current lease agreement.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div style="display: flex; align-items: flex-start;">
+                            <div style="width: 50px; height: 50px; border-radius: 10px; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-clipboard-check" style="color: var(--primary-color);"></i>
+                            </div>
+                            <div>
+                                <h3>Special Accommodations</h3>
+                                <p>
+                                    Request special accommodations for accessibility, pets, or other specific needs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div style="display: flex; align-items: flex-start;">
+                            <div style="width: 50px; height: 50px; border-radius: 10px; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-file-alt" style="color: var(--primary-color);"></i>
+                            </div>
+                            <div>
+                                <h3>Other Requests</h3>
+                                <p>
+                                    Have another type of request? Let us know the details and we'll work with you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Request Form -->
+                <div class="card" style="margin-top: 3rem;">
+                    <h2>Submit Your Notice Request</h2>
+                    
+                    <div class="alert alert-info" style="margin-bottom: 2rem;">
+                        <h4 style="margin-bottom: 0.5rem; font-weight: 600;">Submission Tips</h4>
+                        <ul style="list-style: none; margin: 0;">
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem; margin-top: 0.25rem;"></i>
+                                <span>Submit lease extension requests at least 30 days before your current lease expires.</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem; margin-top: 0.25rem;"></i>
+                                <span>Provide as much detail as possible about your request to help us process it efficiently.</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem; margin-top: 0.25rem;"></i>
+                                <span>If you're requesting to add a roommate, they'll need to complete an application and screening.</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start;">
+                                <i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem; margin-top: 0.25rem;"></i>
+                                <span>For move-out notices, please use our dedicated "Notice to Vacate" form instead.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="form-container">
+                        <form class="demo-form" id="notice-form">
+                            <h3 style="margin-bottom: 1.5rem;">Your Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" id="name" name="name" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" id="email" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="property" class="form-label">Property Address</label>
+                                    <input type="text" id="property" name="property" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <h3 style="margin: 2rem 0 1.5rem;">Request Details</h3>
+                            
+                            <div class="form-group">
+                                <label for="request-type" class="form-label">Request Type</label>
+                                <select id="request-type" name="requestType" class="form-control" required>
+                                    <option value="">Please select</option>
+                                    <option value="lease-extension">Lease Extension/Renewal</option>
+                                    <option value="add-roommate">Add Roommate</option>
+                                    <option value="remove-roommate">Remove Roommate</option>
+                                    <option value="special-accommodation">Special Accommodation</option>
+                                    <option value="pet-request">Pet Request</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="request-date" class="form-label">Requested Start Date</label>
+                                <input type="date" id="request-date" name="requestDate" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="description" class="form-label">Detailed Description</label>
+                                <textarea id="description" name="description" class="form-control" rows="5" required 
+                                    placeholder="Please provide a detailed description of your request. Include any specific changes or accommodations you're seeking."></textarea>
+                            </div>
+                            
+                            <div class="form-group additional-info" style="display: none;" id="new-roommate-info">
+                                <h4 style="margin-bottom: 1rem;">New Roommate Information</h4>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="roommate-name" class="form-label">Roommate's Full Name</label>
+                                        <input type="text" id="roommate-name" name="roommateName" class="form-control">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="roommate-email" class="form-label">Roommate's Email Address</label>
+                                        <input type="email" id="roommate-email" name="roommateEmail" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="roommate-phone" class="form-label">Roommate's Phone Number</label>
+                                    <input type="tel" id="roommate-phone" name="roommatePhone" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group additional-info" style="display: none;" id="pet-info">
+                                <h4 style="margin-bottom: 1rem;">Pet Information</h4>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="pet-type" class="form-label">Type of Pet</label>
+                                        <input type="text" id="pet-type" name="petType" class="form-control" placeholder="e.g., Dog, Cat, Bird">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="pet-breed" class="form-label">Breed</label>
+                                        <input type="text" id="pet-breed" name="petBreed" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="pet-weight" class="form-label">Weight (kg)</label>
+                                        <input type="number" id="pet-weight" name="petWeight" class="form-control">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="pet-age" class="form-label">Age</label>
+                                        <input type="text" id="pet-age" name="petAge" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="additional-info" class="form-label">Additional Information (Optional)</label>
+                                <textarea id="additional-info" name="additionalInfo" class="form-control" rows="3" 
+                                    placeholder="Provide any additional information that might be helpful for processing your request."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">
+                                Submit Notice Request
+                            </button>
+                        </form>
+                        
+                        <div class="success-message" style="display: none;">
+                            <div class="alert alert-success">
+                                <h3 style="color: #28a745; margin-bottom: 1rem;">Notice Request Submitted</h3>
+                                <p style="margin-bottom: 0.5rem;">Thank you for submitting your notice request. We've received your information and will process it promptly.</p>
+                                <p style="margin-bottom: 0.5rem;"><strong>What happens next?</strong></p>
+                                <ul style="list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem;">
+                                    <li>You'll receive a confirmation email with your request details.</li>
+                                    <li>Your property manager will review your request within 2-3 business days.</li>
+                                    <li>We'll contact you to discuss your request and any additional steps required.</li>
+                                </ul>
+                                <p>If you have questions about your request, please contact your property manager or our office at (09) 123-4567.</p>
+                            </div>
+                            <button class="btn btn-primary" onclick="document.getElementById('notice-form').reset(); document.querySelector('.success-message').style.display = 'none'; document.getElementById('notice-form').style.display = 'block';">Submit Another Request</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- What to Expect Section -->
+                <div style="margin-top: 3rem;">
+                    <h2 class="section-title text-center">What to Expect After Submission</h2>
+                    
+                    <div class="grid grid-3 text-center">
+                        <div class="card">
+                            <div style="width: 40px; height: 40px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: bold;">
+                                1
+                            </div>
+                            <h3>Confirmation</h3>
+                            <p>
+                                You'll receive an email confirmation within 24 hours acknowledging receipt of your request.
+                            </p>
+                        </div>
+                        
+                        <div class="card">
+                            <div style="width: 40px; height: 40px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: bold;">
+                                2
+                            </div>
+                            <h3>Review</h3>
+                            <p>
+                                Your property manager will review your request and contact you within 2-3 business days to discuss details.
+                            </p>
+                        </div>
+                        
+                        <div class="card">
+                            <div style="width: 40px; height: 40px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: bold;">
+                                3
+                            </div>
+                            <h3>Resolution</h3>
+                            <p>
+                                If approved, we'll prepare any necessary documentation and coordinate next steps with you.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-light">
+        <div class="container text-center">
+            <h2>Need to Submit a Different Request?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem;">
+                Check out our other tenant services and request forms.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="maintenance-request.html" class="btn btn-primary">Maintenance Request</a>
+                <a href="notice-vacate.html" class="btn btn-primary">Notice to Vacate</a>
+                <a href="tenant-services.html" class="btn btn-outline">All Tenant Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Find A Room</h4>
+                    <p>Connecting quality tenants with great shared living spaces across New Zealand.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <!-- <li><a href="landlords.html">Landlord Services</a></li> -->
+                        <li><a href="tenants.html">Tenant Resources</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.trademe.co.nz/a/search?member_listing=8900509">Rental Listings</a></li>
+                        <li><a href="owner-portal.html">Owner Portal</a></li>
+                        <li><a href="payment-collection.html">Payment Collection</a></li>
+                        <li><a href="maintenance-request.html">Maintenance Requests</a></li>
+                        <li><a href="tenant-services.html">Tenant Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 
+                            355A, Maunganui Road Mount Maunganui, 3116 Tauranga
+                            NEW ZEALAND</li>
+                        <li><i class="fas fa-phone"></i> +64 21 1012737</li>
+                        <li><i class="fas fa-envelope"></i> support@findaroom.co.nz</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Find A Room. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Show/hide additional info based on request type
+        const requestTypeSelect = document.getElementById('request-type');
+        const newRoommateInfo = document.getElementById('new-roommate-info');
+        const petInfo = document.getElementById('pet-info');
+        
+        if (requestTypeSelect && newRoommateInfo && petInfo) {
+            requestTypeSelect.addEventListener('change', function() {
+                const selectedValue = this.value;
+                
+                // Hide all additional info sections
+                document.querySelectorAll('.additional-info').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Show relevant section based on selection
+                if (selectedValue === 'add-roommate') {
+                    newRoommateInfo.style.display = 'block';
+                } else if (selectedValue === 'pet-request') {
+                    petInfo.style.display = 'block';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

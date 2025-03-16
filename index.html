@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find A Room - Quality Shared Accommodation in New Zealand</title>
+    <meta name="description"
+        content="Find A Room connects landlords and tenants for quality shared living spaces across New Zealand.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+ 
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="" class="logo">
+                    <img src="logo.jpg" alt="Find A Room Logo">
+                    <span class="logo-text">Find A Room</span>
+                </a>
+    
+                <button class="mobile-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+    
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="" class="nav-link">Landlords <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="owner-portal.html" class="dropdown-item">Owner Portal</a>
+                                <a href="payment-collection.html" class="dropdown-item">Payment Collection</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Tenants <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="tenants.html" class="dropdown-item">Overview</a>
+                                <a href="rental-application.html" class="dropdown-item">Rental Application</a>
+                                <a href="https://www.trademe.co.nz/a/search?member_listing=8900509" class="dropdown-item">Rental Listings</a>
+                                <a href="tenant-services.html" class="dropdown-item">Tenant Services</a>
+                                <a href="maintenance-request.html" class="dropdown-item">Maintenance Request</a>
+                                <a href="notice-vacate.html" class="dropdown-item">Notice to Vacate</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider">
+        <!-- Slides will be added via JavaScript -->
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Our Comprehensive Services</h2>
+                <p class="section-description">
+                    We provide a complete range of property management solutions for both landlords and tenants.
+                </p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="service-card card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Property Management</h3>
+                    <p>Full-service management of your rental properties, from finding tenants to maintenance.</p>
+                    <a href="landlords.html" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="service-card card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Rental Listings</h3>
+                    <p>Find the perfect shared accommodation with our extensive listing of quality properties.</p>
+                    <a href="https://www.trademe.co.nz/a/search?member_listing=8900509" class="btn btn-outline">Learn
+                        More</a>
+                </div>
+
+                <div class="service-card card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Maintenance Services</h3>
+                    <p>Prompt and efficient handling of all property maintenance requests and issues.</p>
+                    <a href="maintenance-request.html" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Listings Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Featured Rental Properties</h2>
+                <p class="section-description">
+                    Discover our selection of quality shared living spaces available for rent.
+                </p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="property-card" data-location="Auckland Central" data-bedrooms="3" data-price="250"
+                    data-amenities="shared kitchen">
+                    <img src="https://trademe.tmcdn.co.nz/photoserver/plus/2190121147.jpg" alt="Modern City Apartment"
+                        class="property-img">
+                    <div class="property-details">
+                        <h3 class="property-title">Rototuna</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Waikato</p>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-bed"></i> 4 Bedrooms</span>
+                            <span class="property-feature"><i class="fas fa-calendar"></i> Listed:Mon,24 feb</span>
+                        </div>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-utensils"></i> Shared Kitchen</span>
+                        </div>
+                        <p class="property-price">$395 /week</p>
+                        <a href="https://www.trademe.co.nz/a/search?member_listing=8900509" class="btn btn-primary">View
+                            Details</a>
+                    </div>
+                </div>
+
+                <div class="property-card" data-location="Wellington" data-bedrooms="4" data-price="300"
+                    data-amenities="garden">
+                    <img src="https://trademe.tmcdn.co.nz/photoserver/plus/2192234955.jpg" alt="Spacious Shared House"
+                        class="property-img">
+                    <div class="property-details">
+                        <h3 class="property-title">Hamiliton East</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Waikato</p>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-bed"></i> 5 Bedrooms</span>
+                            <span class="property-feature"><i class="fas fa-calendar"></i> Listed: Tue, 4 Mar</span>
+                        </div>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-leaf"></i> Hamiliton East</span>
+                        </div>
+                        <p class="property-price">$375 /week</p>
+                        <a href="https://www.trademe.co.nz/a/search?member_listing=8900509" class="btn btn-primary">View
+                            Details</a>
+                    </div>
+
+                </div>
+
+                <div class="property-card" data-location="Wellington" data-bedrooms="4" data-price="300"
+                    data-amenities="garden">
+                    <img src="https://trademe.tmcdn.co.nz/photoserver/plus/2192235105.jpg" alt="Spacious Shared House"
+                        class="property-img">
+                    <div class="property-details">
+                        <h3 class="property-title">Hamiliton East</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Waikato</p>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-bed"></i> 5 Bedrooms</span>
+                            <span class="property-feature"><i class="fas fa-calendar"></i> Listed: Tue, 4 Mar</span>
+                        </div>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-leaf"></i> Hamiliton East</span>
+                        </div>
+                        <p class="property-price">$375 /week</p>
+                        <a href="https://www.trademe.co.nz/a/search?member_listing=8900509" class="btn btn-primary">View
+                            Details</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="https://www.trademe.co.nz/a/search?member_listing=8900509" class="btn btn-secondary">View All
+                    Listings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="text-center">
+                <h2>WHO WE ARE</h2>
+                <p class="">
+                    At Find a Room, we connect tenants and landlords with ease. Whether you’re looking for a cozy space
+                    to call home or seeking reliable tenants for your property, our platform streamlines the rental
+                    process, ensuring transparency, convenience, and satisfaction for all.
+
+
+
+
+                </p>
+
+                <p>Our mission is to simplify the search for the perfect living space while fostering meaningful
+                    connections between tenants and landlords. At Find a Room, your comfort and peace of mind are our
+                    priorities. Whether you’re moving in or moving on, we make finding a room simple, quick, and
+                    stress-free!</p>
+            </div>
+
+            <!-- <div class="steps">
+                <div class="steps-line"></div>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Register & Create Profile</h3>
+                    <p>Sign up for our waitlist to gain early access to our platform and create your detailed profile.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Browse or List Properties</h3>
+                    <p>Search through available listings or list your property with detailed information and images.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Connect & Finalize</h3>
+                    <p>Connect with potential roommates or tenants, arrange viewings, and finalize your perfect living arrangement.</p>
+                </div>
+            </div> -->
+
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="about.html" class="btn btn-secondary">Know About us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <!-- <section class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-description">
+                    Hear from our satisfied landlords and tenants about their experience with Find A Room.
+                </p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="testimonial-card card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Find A Room made it so easy to find quality shared accommodation. Their platform helped me connect with compatible roommates in a beautiful apartment. The whole process was smooth and stress-free!"
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Sarah J." class="testimonial-img">
+                        <div class="author-details">
+                            <h4>Sarah J.</h4>
+                            <p>Tenant</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "As a property owner, Find A Room has been invaluable. Their property management services are excellent, handling everything from tenant screening to maintenance. I can finally enjoy passive income without the stress!"
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Michael R." class="testimonial-img">
+                        <div class="author-details">
+                            <h4>Michael R.</h4>
+                            <p>Property Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Waitlist Section -->
+    <!-- <section id="waitlist" class="section section-light">
+        <div class="container">
+            <div class="grid grid-2" style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Modern living room" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 2rem;">
+                    <h2 class="section-title">Join Our Waitlist</h2>
+                    <p>
+                        Be the first to access our platform when we launch. Sign up now for exclusive early access and special offers.
+                    </p>
+                    
+                    <div class="form-container">
+                        <form class="demo-form" id="waitlist-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="interest" class="form-label">I am interested in</label>
+                                <select id="interest" name="interest" class="form-control" required>
+                                    <option value="">Please select</option>
+                                    <option value="renting">Finding shared accommodation</option>
+                                    <option value="listing">Listing my property</option>
+                                    <option value="both">Both</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-secondary" style="width: 100%;">Join Waitlist</button>
+                        </form>
+                        
+                        <div class="success-message" style="display: none;">
+                            <div class="alert alert-success">
+                                <i class="fas fa-check-circle"></i> Thank you for joining our waitlist! We'll notify you as soon as our platform is ready.
+                            </div>
+                            <button class="btn btn-primary" onclick="document.getElementById('waitlist-form').reset(); document.querySelector('.success-message').style.display = 'none'; document.getElementById('waitlist-form').style.display = 'block';">Submit Another</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 style="font-size: 2rem;">Find A Room</h4>
+                    <!-- <p>Connecting quality tenants with great shared living spaces across New Zealand.</p> -->
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1D2576aVEp/?mibextid=wwXIfr" class="social-icon"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <!-- <li><a href="landlords.html">Landlord Services</a></li> -->
+                        <li><a href="tenants.html">Tenant Resources</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.trademe.co.nz/a/search?member_listing=8900509">Rental Listings</a></li>
+                        <li><a href="owner-portal.html">Owner Portal</a></li>
+                        <li><a href="payment-collection.html">Payment Collection</a></li>
+                        <li><a href="maintenance-request.html">Maintenance Requests</a></li>
+                        <li><a href="tenant-services.html">Tenant Services</a></li>
+                        <li><a href="rental-application.html">Rental Application</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i>
+                            355A, Maunganui Road Mount Maunganui, 3116 Tauranga
+                            NEW ZEALAND</li>
+                        <li><i class="fas fa-phone"></i> +64 21 1012737</li>
+                        <li><i class="fas fa-envelope"></i> support@findaroom.co.nz</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p style="font-size:15px ;">&copy; 2024 Find A Room. All rights reserved.</p>
+                <p style="font-size: 11px;"> Developed by International Data Solution</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="main.js"></script>
+    <script src="slider.js"></script>
+</body>
+
+</html>

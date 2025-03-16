@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Collection - Find A Room</title>
+    <meta name="description" content="Efficient rent collection and payment management solutions for landlords - Find A Room helps you manage your rental income with ease.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .feature-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            width: 190px;
+            margin-left: 20px;
+        }
+        
+        .feature-1 .feature-icon {
+            background: linear-gradient(135deg, #0D3C5F 0%, #1e5b8c 100%);
+        }
+        
+        .feature-2 .feature-icon {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6c8a 100%);
+        }
+        
+        .feature-3 .feature-icon {
+            background: linear-gradient(135deg, #34495e 0%, #5c7d9a 100%);
+        }
+        
+        .feature-4 .feature-icon {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6c8a 100%);
+        }
+        
+        .feature-5 .feature-icon {
+            background: linear-gradient(135deg, #0D3C5F 0%, #1e5b8c 100%);
+        }
+        
+        .feature-6 .feature-icon {
+            background: linear-gradient(135deg, #34495e 0%, #5c7d9a 100%);
+        }
+        
+        .feature-content {
+            padding: 1.5rem;
+            background-color: white;
+        }
+        
+        .pricing-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: translateX(30%) translateY(-10%) rotate(45deg);
+            transform-origin: top right;
+            width: 150px;
+            text-align: center;
+        }
+        
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+        
+        .pricing-period {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem;
+            flex-grow: 1;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .pricing-features i {
+            color: var(--accent-color);
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+        }
+        
+        .tab-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            background-color: white;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #f8f9fa;
+            overflow-x: auto;
+        }
+        
+        .tab {
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            color: var(--gray-text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            background-color: white;
+        }
+        
+        .tab-content {
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="logo.jpg" alt="Find A Room Logo">
+                    <span class="logo-text">Find A Room</span>
+                </a>
+
+                <button class="mobile-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Landlords <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <!-- <a href="landlords.html" class="dropdown-item">Overview</a> -->
+                                <a href="owner-portal.html" class="dropdown-item">Owner Portal</a>
+                                <a href="payment-collection.html" class="dropdown-item">Payment Collection</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Tenants <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="tenants.html" class="dropdown-item">Overview</a>
+                                <a href="rental-application.html" class="dropdown-item">Rental Application</a>
+                                <a href="https://www.trademe.co.nz/a/search?member_listing=8900509"
+                                    class="dropdown-item">Rental Listings</a>
+                                <a href="tenant-services.html" class="dropdown-item">Tenant Services</a>
+                                <a href="maintenance-request.html" class="dropdown-item">Maintenance Request</a>
+                                <!-- <a href="notice-request.html" class="dropdown-item">Notice Request</a> -->
+                                <a href="notice-vacate.html" class="dropdown-item">Notice to Vacate</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Payment Collection</h1>
+                <p>Streamlined rent collection and payment management solutions for landlords.</p>
+                <div class="hero-buttons">
+                    <!-- <a href="#pricing" class="btn btn-secondary">View Pricing</a> -->
+                    <a href="#features" class="btn btn-white">Explore Features</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Payment Collection Features</h2>
+                <p class="section-description">
+                    Our comprehensive payment solution helps landlords collect rent on time and manage finances efficiently.
+                </p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="feature-card feature-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Automated Rent Collection</h3>
+                        <p>
+                            Set up automatic rent collection from tenants through bank transfers, credit cards, or direct debits, ensuring consistent cash flow without manual intervention.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="feature-card feature-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Payment Reminders</h3>
+                        <p>
+                            Automated payment reminders sent to tenants via email or SMS before rent is due, reducing late payments and follow-up communications.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="feature-card feature-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Financial Reporting</h3>
+                        <p>
+                            Comprehensive financial reports showing income, expenses, and cash flow for all your properties, exportable for accounting purposes.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="feature-card feature-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Digital Receipts</h3>
+                        <p>
+                            Automatic generation of digital receipts for all payments, providing documentation for both landlords and tenants.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="feature-card feature-5">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Secure Processing</h3>
+                        <p>
+                            Bank-level security for all financial transactions, ensuring the safety of your rental income and tenant payment information.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="feature-card feature-6">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Late Fee Management</h3>
+                        <p>
+                            Configurable late fee settings with automatic calculation and application according to your lease terms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">How Our Payment System Works</h2>
+                <p class="section-description">
+                    A simple, efficient process for collecting and managing rental payments
+                </p>
+            </div>
+            
+            <div class="grid grid-3 text-center">
+                <div class="card">
+                    <div style="width: 80px; height: 80px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Setup Tenants</h3>
+                    <p>
+                        Add your tenants and properties to the system. Specify rent amounts, due dates, and payment methods for each tenant.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div style="width: 80px; height: 80px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Schedule Payments</h3>
+                    <p>
+                        Set up recurring payment schedules. Tenants receive automatic notifications when payments are due or overdue.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div style="width: 80px; height: 80px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Receive Funds</h3>
+                    <p>
+                        Payments are automatically processed and deposited into your designated bank account, typically within 1-2 business days.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div style="width: 80px; height: 80px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Track Payments</h3>
+                    <p>
+                        Monitor all payments through your dashboard. View payment history, outstanding balances, and transaction details.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div style="width: 80px; height: 80px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Generate Reports</h3>
+                    <p>
+                        Create detailed financial reports for accounting, tax purposes, or general financial planning and analysis.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div style="width: 80px; height: 80px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Manage Expenses</h3>
+                    <p>
+                        Track and categorize property expenses, maintaining a complete financial picture of your rental business.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tenant Experience Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">The Tenant Experience</h2>
+                <p class="section-description">
+                    Our payment system creates a user-friendly experience for your tenants
+                </p>
+            </div>
+            
+            <div class="tab-container">
+                <ul class="tabs">
+                    <li class="tab active" data-tab="tenant-portal">Tenant Portal</li>
+                    <li class="tab" data-tab="payment-options">Payment Options</li>
+                    <li class="tab" data-tab="notifications">Notifications</li>
+                    <li class="tab" data-tab="receipts">Receipts & Records</li>
+                    <li class="tab" data-tab="security">Security & Privacy</li>
+                </ul>
+                
+                <div class="tab-content" id="tenant-portal-content">
+                    <div class="grid grid-2">
+                        <div>
+                            <h3>Tenant Payment Portal</h3>
+                            <p style="margin-bottom: 1rem;">
+                                Tenants access a dedicated portal where they can:
+                            </p>
+                            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <span>View current and past rent payments</span>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <span>Make one-time payments for rent or other fees</span>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <span>Set up automatic payments for recurring rent</span>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <span>Update payment methods and personal information</span>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <span>Download payment receipts and rent statements</span>
+                                </li>
+                                <li style="display: flex;">
+                                    <i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <span>Communication with property management</span>
+                                </li>
+                            </ul>
+                            <p>
+                                The portal is mobile-friendly, allowing tenants to manage their payments from any device, anytime, anywhere.
+                            </p>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Tenant using payment portal" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="payment-options-content" style="display: none;">
+                    <div class="grid grid-2">
+                        <div>
+                            <h3>Flexible Payment Options</h3>
+                            <p style="margin-bottom: 1rem;">
+                                We offer multiple payment methods to accommodate tenant preferences:
+                            </p>
+                            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-university" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Bank Transfers (ACH)</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Connect bank accounts for direct, fee-free transfers
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-credit-card" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Credit/Debit Cards</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Secure credit and debit card processing (convenience fee may apply)
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-sync" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Recurring Payments</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Set-and-forget automatic payments on the rent due date
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex;">
+                                    <i class="fas fa-money-bill-wave" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Cash Payment Network</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Options for cash payments at participating retail locations
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Payment methods" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="notifications-content" style="display: none;">
+                    <div class="grid grid-2">
+                        <div>
+                            <h3>Smart Notification System</h3>
+                            <p style="margin-bottom: 1rem;">
+                                Our communication system keeps tenants informed about their payments:
+                            </p>
+                            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-calendar" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Payment Reminders</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Customizable reminders sent 5, 3, and 1 day before rent is due
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-check-double" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Payment Confirmations</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Immediate confirmation when payments are received
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-exclamation-circle" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Late Payment Alerts</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Automatic notifications when payments are overdue
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex;">
+                                    <i class="fas fa-cog" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Notification Preferences</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Tenants can choose email, SMS, or both for notifications
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Mobile notifications" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="receipts-content" style="display: none;">
+                    <div class="grid grid-2">
+                        <div>
+                            <h3>Digital Receipts & Records</h3>
+                            <p style="margin-bottom: 1rem;">
+                                Comprehensive documentation for all financial transactions:
+                            </p>
+                            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-receipt" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Automated Receipts</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Instant digital receipts generated for every payment
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-history" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Payment History</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Complete history of all payments available at any time
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-file-download" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Downloadable Statements</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Monthly and annual statements available for download
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex;">
+                                    <i class="fas fa-file-invoice" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Rent Verification</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Official rent verification letters for tenant applications
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Digital receipts" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="security-content" style="display: none;">
+                    <div class="grid grid-2">
+                        <div>
+                            <h3>Enterprise-Grade Security</h3>
+                            <p style="margin-bottom: 1rem;">
+                                We prioritize the security of all financial data and transactions:
+                            </p>
+                            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-lock" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Bank-Level Encryption</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            256-bit encryption for all data transmission and storage
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-shield-alt" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>PCI DSS Compliance</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Full compliance with payment card industry standards
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex; margin-bottom: 0.75rem;">
+                                    <i class="fas fa-fingerprint" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Two-Factor Authentication</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Extra layer of security for account access
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="display: flex;">
+                                    <i class="fas fa-user-secret" style="color: var(--primary-color); margin-right: 0.75rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                    <div>
+                                        <strong>Privacy Protection</strong>
+                                        <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                                            Strict data privacy policies that exceed industry standards
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <img src="tenants3.jpg" alt="Security protection" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <!-- <section class="section section-light">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-description">
+                    Hear from landlords who have transformed their rent collection process
+                </p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <div style="display: flex; margin-bottom: 1rem;">
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                    </div>
+                    <blockquote style="font-style: italic; margin-bottom: 1.5rem; color: var(--gray-text);">
+                        "Since implementing Find A Room's payment collection system, I've seen a 95% reduction in late payments. The automated reminders and easy payment options have made a huge difference. I no longer spend time chasing rent payments and can focus on managing my properties."
+                    </blockquote>
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; margin-right: 1rem;">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Property owner" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <p style="font-weight: 600; color: var(--primary-color); margin: 0;">Michael Robertson</p>
+                            <p style="color: var(--gray-text); margin: 0; font-size: 0.9rem;">Property Owner, Auckland</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="display: flex; margin-bottom: 1rem;">
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                    </div>
+                    <blockquote style="font-style: italic; margin-bottom: 1.5rem; color: var(--gray-text);">
+                        "The financial reporting features have been a game-changer for my rental business. I can generate detailed reports for tax time with just a few clicks, saving me countless hours of work. My accountant loves how organized everything is!"
+                    </blockquote>
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; margin-right: 1rem;">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Property manager" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <p style="font-weight: 600; color: var(--primary-color); margin: 0;">Jennifer Parker</p>
+                            <p style="color: var(--gray-text); margin: 0; font-size: 0.9rem;">Property Manager, Wellington</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="display: flex; margin-bottom: 1rem;">
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star-half-alt" style="color: var(--accent-color);"></i>
+                    </div>
+                    <blockquote style="font-style: italic; margin-bottom: 1.5rem; color: var(--gray-text);">
+                        "My tenants actually appreciate the payment system as much as I do. They have multiple ways to pay, get helpful reminders, and have access to their complete payment history. It's made our landlord-tenant relationship much smoother."
+                    </blockquote>
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; margin-right: 1rem;">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Property investor" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <p style="font-weight: 600; color: var(--primary-color); margin: 0;">David Chen</p>
+                            <p style="color: var(--gray-text); margin: 0; font-size: 0.9rem;">Property Investor, Christchurch</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="display: flex; margin-bottom: 1rem;">
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                    </div>
+                    <blockquote style="font-style: italic; margin-bottom: 1.5rem; color: var(--gray-text);">
+                        "I used to spend at least 10 hours a month on payment-related tasks. With Find A Room's system, that's down to less than an hour. The return on investment has been incredible - I've expanded my portfolio because I now have the time to focus on growth."
+                    </blockquote>
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; margin-right: 1rem;">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Property owner" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <p style="font-weight: 600; color: var(--primary-color); margin: 0;">Sarah Williams</p>
+                            <p style="color: var(--gray-text); margin: 0; font-size: 0.9rem;">Property Owner, Tauranga</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Pricing Section -->
+    <!-- <section id="pricing" class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Simple, Transparent Pricing</h2>
+                <p class="section-description">
+                    Choose the plan that fits your property portfolio
+                </p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="pricing-price">$29</div>
+                        <div class="pricing-period">per month</div>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Up to 5 units</li>
+                        <li><i class="fas fa-check"></i> Automated rent collection</li>
+                        <li><i class="fas fa-check"></i> Payment reminders</li>
+                        <li><i class="fas fa-check"></i> Basic financial reports</li>
+                        <li><i class="fas fa-check"></i> Digital receipts</li>
+                        <li><i class="fas fa-times" style="color: var(--gray-text);"></i> Late fee automation</li>
+                        <li><i class="fas fa-times" style="color: var(--gray-text);"></i> Advanced reporting</li>
+                        <li><i class="fas fa-times" style="color: var(--gray-text);"></i> Expense tracking</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%;">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="pricing-price">$59</div>
+                        <div class="pricing-period">per month</div>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Up to 15 units</li>
+                        <li><i class="fas fa-check"></i> Automated rent collection</li>
+                        <li><i class="fas fa-check"></i> Payment reminders</li>
+                        <li><i class="fas fa-check"></i> Advanced financial reports</li>
+                        <li><i class="fas fa-check"></i> Digital receipts</li>
+                        <li><i class="fas fa-check"></i> Late fee automation</li>
+                        <li><i class="fas fa-check"></i> Expense tracking</li>
+                        <li><i class="fas fa-times" style="color: var(--gray-text);"></i> Custom reporting</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn btn-secondary" style="width: 100%;">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="pricing-price">$99</div>
+                        <div class="pricing-period">per month</div>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited units</li>
+                        <li><i class="fas fa-check"></i> Automated rent collection</li>
+                        <li><i class="fas fa-check"></i> Payment reminders</li>
+                        <li><i class="fas fa-check"></i> Advanced financial reports</li>
+                        <li><i class="fas fa-check"></i> Digital receipts</li>
+                        <li><i class="fas fa-check"></i> Late fee automation</li>
+                        <li><i class="fas fa-check"></i> Expense tracking</li>
+                        <li><i class="fas fa-check"></i> Custom reporting</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%;">Get Started</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="max-width: 600px; margin: 0 auto 1.5rem;">
+                    All plans include secure payment processing, tenant portal access, and dedicated support. Looking for custom solutions for larger portfolios?
+                </p>
+                <a href="contact.html" class="btn btn-primary">Contact Us for Custom Pricing</a>
+            </div>
+        </div>
+ </section>  -->
+
+    <!-- FAQ Section -->
+    <!-- <section class="section section-light">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-description">
+                    Common questions about our payment collection service
+                </p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">How are the payments processed?</div>
+                    <div class="faq-answer">
+                        Our system processes payments through a secure, PCI-compliant payment gateway. For bank transfers (ACH), funds typically take 1-3 business days to deposit into your account. For credit/debit card payments, funds are usually deposited within 2 business days. All transactions are protected with 256-bit encryption, and we never store complete credit card information.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Are there transaction fees?</div>
+                    <div class="faq-answer">
+                        Bank transfers (ACH) are processed at no additional cost to landlords on all plans. Credit/debit card payments have a standard processing fee of 2.9% + $0.30 per transaction, which can either be absorbed by the landlord or passed on to the tenant as a convenience fee (subject to local regulations). Cash payments through our retail network have a flat fee of $3.99 per transaction.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do tenants set up automatic payments?</div>
+                    <div class="faq-answer">
+                        Tenants can easily set up automatic payments through their tenant portal. Once logged in, they navigate to the "Payments" section, select "Set Up Autopay," and follow the prompts to choose their payment method and frequency. They can configure payments to occur on a specific date each month or align with their rent due date. Tenants can update or cancel autopay at any time through their portal.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What types of financial reports are available?</div>
+                    <div class="faq-answer">
+                        Our system offers a comprehensive range of financial reports, including income statements, payment histories, outstanding balances, late payment summaries, and yearly rent rolls. Professional and Enterprise plans include additional reports such as property-specific P&L statements, expense tracking, and tax preparation reports. All reports can be customized by date range and exported in PDF, Excel, or CSV formats.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How are late fees handled?</div>
+                    <div class="faq-answer">
+                        The Professional and Enterprise plans include automated late fee management. You can configure late fee rules to match your lease terms, including grace periods, fixed amounts, percentage-based fees, and maximum limits. When a payment becomes overdue, the system automatically applies the appropriate fee according to your settings and notifies the tenant. Tenants can then pay both the outstanding rent and late fees through their portal.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I try the system before committing?</div>
+                    <div class="faq-answer">
+                        Yes, we offer a 30-day free trial for all new customers. During the trial period, you'll have access to all features of the Professional plan, allowing you to set up your properties, invite tenants, and experience the full functionality of the system. No credit card is required to start the trial, and you can upgrade, downgrade, or cancel at any time. Additionally, we offer personalized demos for property owners with larger portfolios.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- CTA Section -->
+    <section class="section section-dark">
+        <div class="container text-center">
+            <h2>Ready to Simplify Your Rent Collection?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem; opacity: 0.9;">
+                Join thousands of landlords who have transformed their rent collection process with Find A Room's payment solutions.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-secondary">Get Started Today</a>
+                <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">Request a Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 style="font-size: 2rem;">Find A Room</h4>
+                    <!-- <p>Connecting quality tenants with great shared living spaces across New Zealand.</p> -->
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1D2576aVEp/?mibextid=wwXIfr" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <!-- <li><a href="landlords.html">Landlord Services</a></li> -->
+                        <li><a href="tenants.html">Tenant Resources</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.trademe.co.nz/a/search?member_listing=8900509">Rental Listings</a></li>
+                        <li><a href="owner-portal.html">Owner Portal</a></li>
+                        <li><a href="payment-collection.html">Payment Collection</a></li>
+                        <li><a href="maintenance-request.html">Maintenance Requests</a></li>
+                        <li><a href="tenant-services.html">Tenant Services</a></li>
+                        <li><a href="rental-application.html">Rental Application</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 
+                            355A, Maunganui Road Mount Maunganui, 3116 Tauranga
+                            NEW ZEALAND</li>
+                        <li><i class="fas fa-phone"></i> +64 21 1012737</li>
+                        <li><i class="fas fa-envelope"></i> support@findaroom.co.nz</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p style="font-size:15px ;">&copy; 2024 Find A Room. All rights reserved.</p>
+                <p style="font-size: 11px;"> Developed by International Data Solution</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        
+        if (tabs.length > 0) {
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all tab content
+                    const tabContents = document.querySelectorAll('.tab-content');
+                    tabContents.forEach(content => {
+                        content.style.display = 'none';
+                    });
+                    
+                    // Show the selected tab content
+                    const tabId = this.getAttribute('data-tab');
+                    const targetContent = document.getElementById(tabId + '-content');
+                    if (targetContent) {
+                        targetContent.style.display = 'block';
+                    }
+                });
+            });
+        }
+        
+        // FAQ accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        if (faqQuestions.length > 0) {
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const answer = this.nextElementSibling;
+                    
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

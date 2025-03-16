@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Request - Find A Room</title>
+    <meta name="description" content="Submit a maintenance request for your rental property with Find A Room - prompt resolution for all property maintenance issues.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="logo.jpg" alt="Find A Room Logo">
+                    <span class="logo-text">Find A Room</span>
+                </a>
+                
+                <button class="mobile-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Landlords <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <!-- <a href="landlords.html" class="dropdown-item">Overview</a> -->
+                                <a href="owner-portal.html" class="dropdown-item">Owner Portal</a>
+                                <a href="payment-collection.html" class="dropdown-item">Payment Collection</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Tenants <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="tenants.html" class="dropdown-item">Overview</a>
+                                <a href="rental-application.html" class="dropdown-item">Rental Application</a>
+                                <a href="https://www.trademe.co.nz/a/search?member_listing=8900509" class="dropdown-item">Rental Listings</a>
+                                <a href="tenant-services.html" class="dropdown-item">Tenant Services</a>
+                                <a href="maintenance-request.html" class="dropdown-item">Maintenance Request</a>
+                                <!-- <a href="notice-request.html" class="dropdown-item">Notice Request</a> -->
+                                <a href="notice-vacate.html" class="dropdown-item">Notice to Vacate</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Maintenance Request</h1>
+                <p>Report any maintenance issues with your rental property for prompt resolution.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">For emergencies outside of business hours, please call our 24/7 line: +64 21 1012737</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div class="grid grid-3">
+                    <div class="card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Quick Response</h3>
+                        <p>
+                            We respond to most maintenance requests within 24 hours of submission.
+                        </p>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Quality Service</h3>
+                        <p>
+                            All repairs are completed by vetted, qualified service providers.
+                        </p>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Follow-Up</h3>
+                        <p>
+                            We check in after every repair to ensure your complete satisfaction.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Request Form -->
+                <div class="card" style="margin-top: 3rem;">
+                    <h2>Submit a Maintenance Request</h2>
+                    
+                    <div class="alert alert-warning" style="display: flex; align-items: flex-start; margin-bottom: 2rem;">
+                        <i class="fas fa-exclamation-triangle" style="margin-right: 1rem; flex-shrink: 0; margin-top: 0.25rem;"></i>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem; font-weight: 600;">Emergency Situations</h4>
+                            <p style="margin: 0;">
+                                For emergencies that pose an immediate risk (like major water leaks, gas leaks, 
+                                complete power outage, or security issues), please call our emergency line at 
+                                +64 21 1012737 instead of using this form.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-container">
+                        <form class="demo-form" id="maintenance-form">
+                            <h3 style="margin-bottom: 1.5rem;">Your Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Name of Lead Tenant</label>
+                                    <input type="text" id="name" name="name" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" id="email" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="property" class="form-label">Property Address</label>
+                                    <input type="text" id="property" name="property" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <h3 style="margin: 2rem 0 1.5rem;">Maintenance Details</h3>
+                            
+                            <div class="form-group">
+                                <label for="issue-type" class="form-label">Issue Type</label>
+                                <select id="issue-type" name="issueType" class="form-control" required>
+                                    <option value="">Please select</option>
+                                    <option value="plumbing">Security</option>
+                                    <option value="electrical">Damp Issues</option>
+                                    <option value="appliance">Heating</option>
+                                    <option value="heating-cooling">Electrical</option>
+                                    <option value="structural">Plumbing</option>
+                                    <option value="pest">Decorator</option>
+                                    <option value="pest">Flooring or Carperts</option>
+                                    <option value="other">Lighting</option>
+                                    <option value="other">Gardern/Exterior</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="location" class="form-label">Location in Property</label>
+                                <select id="location" name="location" class="form-control" required>
+                                    <option value="">Please select</option>
+                                    <option value="kitchen">Kitchen</option>
+                                    <option value="bathroom">Bathroom</option>
+                                    <option value="bedroom">Bedroom</option>
+                                    <option value="living-room">Living Room</option>
+                                    <option value="laundry">Laundry</option>
+                                    <option value="exterior">Exterior</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="priority" class="form-label">Priority Level</label>
+                                <select id="priority" name="priority" class="form-control" required>
+                                    <option value="">Please select</option>
+                                    <option value="low">Low - Not urgent, can be fixed when convenient</option>
+                                    <option value="medium">Medium - Needs attention within a week</option>
+                                    <option value="high">High - Needs prompt attention (within 48 hours)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="description" class="form-label">Detailed Description</label>
+                                <textarea id="description" name="description" class="form-control" rows="5" required 
+                                    placeholder="Please provide a detailed description of the issue. Include when you first noticed it and any troubleshooting steps you've already taken."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="access-info" class="form-label">Access Information (Optional)</label>
+                                <textarea id="access-info" name="accessInfo" class="form-control" rows="3" 
+                                    placeholder="Provide any special instructions for accessing your unit or the area needing repair."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Permission to Enter</label>
+                                <div class="form-check">
+                                    <input type="checkbox" id="entry-permission" name="entryPermission" class="form-check-input" required>
+                                    <label for="entry-permission">I give permission for maintenance staff to enter my unit to complete repairs when I am not present, provided I receive 24-hour notice (except in emergency situations).</label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">
+                                Submit Maintenance Request
+                            </button>
+                        </form>
+                        
+                        <div class="success-message" style="display: none;">
+                            <div class="alert alert-success">
+                                <h3 style="color: #28a745; margin-bottom: 1rem;">Maintenance Request Submitted</h3>
+                                <p style="margin-bottom: 0.5rem;">Thank you for submitting your maintenance request. We've received your information and will process it promptly.</p>
+                                <p style="margin-bottom: 0.5rem;"><strong>What happens next?</strong></p>
+                                <ul style="list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem;">
+                                    <li>You'll receive a confirmation email with your request details and reference number.</li>
+                                    <li>A property manager will review your request within 24 hours (or sooner for high-priority issues).</li>
+                                    <li>We'll contact you to schedule the maintenance visit or request additional information if needed.</li>
+                                </ul>
+                                <p>For emergency situations requiring immediate attention, please call our 24/7 maintenance line at +64 21 1012737.</p>
+                            </div>
+                            <button class="btn btn-primary" onclick="document.getElementById('maintenance-form').reset(); document.querySelector('.success-message').style.display = 'none'; document.getElementById('maintenance-form').style.display = 'block';">Submit Another Request</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Section -->
+                <!-- <div style="margin-top: 3rem;">
+                    <h2 class="section-title text-center">Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How quickly will my request be addressed?</div>
+                        <div class="faq-answer">
+                            We assess all maintenance requests within 24 hours of submission. Emergency requests (like water leaks, heating failures in winter) are prioritized and addressed within 24 hours. Non-emergency requests are typically addressed within 3-5 business days, depending on the nature of the issue and parts or contractor availability.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Will I be charged for maintenance repairs?</div>
+                        <div class="faq-answer">
+                            Tenants are not charged for normal wear and tear or issues that are not tenant-caused. However, repairs needed due to tenant damage, misuse, or negligence may be charged to the tenant. We document all maintenance issues with photos and detailed reports for transparency.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Do I need to be home during repairs?</div>
+                        <div class="faq-answer">
+                            Not necessarily. With your permission, our maintenance staff or contractors can enter your property to complete repairs when you're not home. We always provide advance notice (typically 24-48 hours) except in emergency situations. You're welcome to be present if you prefer.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How do I follow up on my maintenance request?</div>
+                        <div class="faq-answer">
+                            You'll receive automatic email updates when your request is received, scheduled, and completed. You can also contact your property manager directly or call our office at (09) 123-4567 for updates on your maintenance request status.
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-light">
+        <div class="container text-center">
+            <h2>Need Other Tenant Services?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem;">
+                We provide a range of services to ensure your rental experience is smooth and enjoyable.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="tenant-services.html" class="btn btn-primary">View All Services</a>
+                <a href="contact.html" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 style="font-size: 2rem;">Find A Room</h4>
+                    <!-- <p>Connecting quality tenants with great shared living spaces across New Zealand.</p> -->
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1D2576aVEp/?mibextid=wwXIfr" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <!-- <li><a href="landlords.html">Landlord Services</a></li> -->
+                        <li><a href="tenants.html">Tenant Resources</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.trademe.co.nz/a/search?member_listing=8900509">Rental Listings</a></li>
+                        <li><a href="owner-portal.html">Owner Portal</a></li>
+                        <li><a href="payment-collection.html">Payment Collection</a></li>
+                        <li><a href="maintenance-request.html">Maintenance Requests</a></li>
+                        <li><a href="tenant-services.html">Tenant Services</a></li>
+                        <li><a href="rental-application.html">Rental Application</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 
+                            355A, Maunganui Road Mount Maunganui, 3116 Tauranga
+                            NEW ZEALAND</li>
+                        <li><i class="fas fa-phone"></i> +64 21 1012737</li>
+                        <li><i class="fas fa-envelope"></i> support@findaroom.co.nz</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p style="font-size:15px ;">&copy; 2024 Find A Room. All rights reserved.</p>
+                <p style="font-size: 11px;"> Developed by International Data Solution</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

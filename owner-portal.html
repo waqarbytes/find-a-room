@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Portal - Find A Room</title>
+    <meta name="description" content="Access your property management dashboard - Find A Room provides comprehensive landlord tools to monitor and manage your rental investments.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-nav {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        .dashboard-nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            overflow-x: auto;
+        }
+        
+        .dashboard-nav-item {
+            margin-right: 1.5rem;
+            white-space: nowrap;
+        }
+        
+        .dashboard-nav-link {
+            color: var(--gray-text);
+            padding: 0.5rem 0;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .dashboard-nav-link.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .dashboard-nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .stat-card {
+            padding: 1.5rem;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+        }
+        
+        .property-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-occupied {
+            background-color: rgba(46, 204, 113, 0.15);
+            color: #2ecc71;
+        }
+        
+        .status-vacant {
+            background-color: rgba(231, 76, 60, 0.15);
+            color: #e74c3c;
+        }
+        
+        .status-maintenance {
+            background-color: rgba(241, 196, 15, 0.15);
+            color: #f1c40f;
+        }
+        
+        .document-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 0.75rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .document-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .document-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(13, 60, 95, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-nav-list {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="logo.jpg" alt="Find A Room Logo">
+                    <span class="logo-text">Find A Room</span>
+                </a>
+                
+                <button class="mobile-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Landlords <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <!-- <a href="landlords.html" class="dropdown-item">Overview</a> -->
+                                <a href="owner-portal.html" class="dropdown-item">Owner Portal</a>
+                                <a href="payment-collection.html" class="dropdown-item">Payment Collection</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Tenants <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="tenants.html" class="dropdown-item">Overview</a>
+                                <a href="rental-application.html" class="dropdown-item">Rental Application</a>
+                                <a href="https://www.trademe.co.nz/a/search?member_listing=8900509" class="dropdown-item">Rental Listings</a>
+                                <a href="tenant-services.html" class="dropdown-item">Tenant Services</a>
+                                <a href="maintenance-request.html" class="dropdown-item">Maintenance Request</a>
+                                <!-- <a href="notice-request.html" class="dropdown-item">Notice Request</a> -->
+                                <a href="notice-vacate.html" class="dropdown-item">Notice to Vacate</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-sm">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Owner Portal</h1>
+                <p>Manage your properties, track performance, and stay connected with your tenants.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Section (Shown when not logged in) -->
+     <section class="section" id="login-section">
+        <div class="container">
+            <div style="max-width: 500px; margin: 0 auto;">
+                <div class="card">
+                    <h2 class="text-center">Owner Login</h2>
+                    
+                    <form id="login-form" class="demo-form">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <div style="position: relative;">
+                                <input type="password" id="password" name="password" class="form-control" required>
+                                <button type="button" id="toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <div class="form-check">
+                                <input type="checkbox" id="remember" name="remember" class="form-check-input">
+                                <label for="remember">Remember me</label>
+                            </div>
+                            
+                            <a href="#" class="text-primary">Forgot Password?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-secondary" style="width: 100%;">
+                            Log In
+                        </button>
+                    </form>
+                    
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <p>Don't have an account? <a href="contact.html" class="text-primary">Contact us</a> to set up your owner account.</p>
+                    </div>
+                </div>
+                
+                <!-- <div style="margin-top: 2rem; text-align: center;">
+                    <p>For demo purposes, click the button below to view the dashboard:</p>
+                    <button id="view-demo" class="btn btn-primary">View Demo Dashboard</button>
+                </div>
+            </div>
+        </div> -->
+    </section>
+
+    <!-- Dashboard Section (Shown when logged in) -->
+    <!-- <section class="section" id="dashboard-section" style="display: none;">
+        <div class="container"> -->
+            <!-- Dashboard Navigation -->
+            <!-- <nav class="dashboard-nav">
+                <ul class="dashboard-nav-list">
+                    <li class="dashboard-nav-item">
+                        <a href="#overview" class="dashboard-nav-link active" data-target="overview-section">Overview</a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#properties" class="dashboard-nav-link" data-target="properties-section">Properties</a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#tenants" class="dashboard-nav-link" data-target="tenants-section">Tenants</a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#maintenance" class="dashboard-nav-link" data-target="maintenance-section">Maintenance</a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#financials" class="dashboard-nav-link" data-target="financials-section">Financials</a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#documents" class="dashboard-nav-link" data-target="documents-section">Documents</a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#notifications" class="dashboard-nav-link" data-target="notifications-section">Notifications</a>
+                    </li>
+                </ul>
+            </nav> -->
+            
+            <!-- Overview Section -->
+            <!-- <div id="overview-section" class="dashboard-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2>Dashboard Overview</h2>
+                    <div>
+                        <span style="margin-right: 1rem; color: var(--gray-text);">
+                            <i class="fas fa-calendar-alt" style="margin-right: 0.5rem;"></i>
+                            March 2025
+                        </span>
+                        <button class="btn btn-outline btn-sm">
+                            <i class="fas fa-download" style="margin-right: 0.5rem;"></i>
+                            Export
+                        </button>
+                    </div>
+                </div> -->
+                
+                <!-- Stats Cards -->
+                <!-- <div class="grid grid-4">
+                    <div class="stat-card">
+                        <div style="color: var(--gray-text); font-size: 0.9rem;">Total Properties</div>
+                        <div class="stat-value">3</div>
+                        <div style="color: var(--accent-color); font-size: 0.9rem;">
+                            <i class="fas fa-arrow-up" style="margin-right: 0.25rem;"></i>
+                            1 since last month
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div style="color: var(--gray-text); font-size: 0.9rem;">Occupancy Rate</div>
+                        <div class="stat-value">83%</div>
+                        <div style="color: var(--gray-text); font-size: 0.9rem;">
+                            5 of 6 rooms occupied
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div style="color: var(--gray-text); font-size: 0.9rem;">Monthly Income</div>
+                        <div class="stat-value">$3,450</div>
+                        <div style="color: var(--accent-color); font-size: 0.9rem;">
+                            <i class="fas fa-arrow-up" style="margin-right: 0.25rem;"></i>
+                            $450 since last month
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div style="color: var(--gray-text); font-size: 0.9rem;">Maintenance</div>
+                        <div class="stat-value">2</div>
+                        <div style="color: var(--accent-color); font-size: 0.9rem;">
+                            <i class="fas fa-arrow-down" style="margin-right: 0.25rem;"></i>
+                            1 since last month
+                        </div>
+                    </div>
+                </div> -->
+                
+                <!-- Recent Activity -->
+                <!-- <div class="card" style="margin-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h3>Recent Activity</h3>
+                        <a href="#" class="btn-text">View All</a>
+                    </div>
+                    
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; min-width: 800px; border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Date</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Property</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Activity</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Status</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 12, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">123 City Road, Auckland</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Rent Payment Received</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="color: #2ecc71;">Complete</span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <a href="#" class="btn-text">View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 10, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">45 Beach Road, Auckland</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Maintenance Request</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="color: #f1c40f;">In Progress</span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <a href="#" class="btn-text">View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 8, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">87 Mountain View, Wellington</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">New Tenant Lease Signed</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="color: #2ecc71;">Complete</span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <a href="#" class="btn-text">View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 5, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">123 City Road, Auckland</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Property Inspection</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="color: #2ecc71;">Complete</span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <a href="#" class="btn-text">View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 1, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">45 Beach Road, Auckland</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Rent Payment Received</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="color: #2ecc71;">Complete</span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <a href="#" class="btn-text">View</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> -->
+                
+                <!-- Upcoming Events -->
+                <!-- <div class="card" style="margin-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h3>Upcoming Events</h3>
+                        <a href="#" class="btn-text">View Calendar</a>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; align-items: center; padding: 1rem; border-radius: 10px; background-color: rgba(13, 60, 95, 0.05);">
+                            <div style="width: 50px; height: 50px; background-color: var(--primary-color); color: white; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <div style="font-weight: 600; font-size: 1.25rem;">15</div>
+                                <div style="font-size: 0.8rem;">Mar</div>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 0.25rem;">Property Inspection</h4>
+                                <p style="color: var(--gray-text); margin: 0; font-size: 0.9rem;">87 Mountain View, Wellington - 10:00 AM</p>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline btn-sm">Details</button>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; padding: 1rem; border-radius: 10px; background-color: rgba(13, 60, 95, 0.05);">
+                            <div style="width: 50px; height: 50px; background-color: var(--primary-color); color: white; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <div style="font-weight: 600; font-size: 1.25rem;">20</div>
+                                <div style="font-size: 0.8rem;">Mar</div>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 0.25rem;">Lease Renewal Due</h4>
+                                <p style="color: var(--gray-text); margin: 0; font-size: 0.9rem;">123 City Road, Auckland - Room 2</p>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline btn-sm">Details</button>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; padding: 1rem; border-radius: 10px; background-color: rgba(13, 60, 95, 0.05);">
+                            <div style="width: 50px; height: 50px; background-color: var(--primary-color); color: white; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <div style="font-weight: 600; font-size: 1.25rem;">25</div>
+                                <div style="font-size: 0.8rem;">Mar</div>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 0.25rem;">Maintenance Scheduled</h4>
+                                <p style="color: var(--gray-text); margin: 0; font-size: 0.9rem;">45 Beach Road, Auckland - Plumbing Repair</p>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline btn-sm">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- Properties Section -->
+            <!-- <div id="properties-section" class="dashboard-section" style="display: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2>My Properties</h2>
+                    <button class="btn btn-secondary btn-sm">
+                        <i class="fas fa-plus" style="margin-right: 0.5rem;"></i>
+                        Add Property
+                    </button>
+                </div>
+                
+                <div class="grid grid-3"> -->
+                    <!-- Property 1 -->
+                    <!-- <div class="card" style="padding: 0; overflow: hidden;">
+                        <div style="position: relative;">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="City Apartment" style="width: 100%; height: 200px; object-fit: cover;">
+                            <div style="position: absolute; top: 10px; right: 10px; padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: 500; background-color: rgba(255, 255, 255, 0.9);">
+                                <span class="property-status status-occupied">Fully Occupied</span>
+                            </div>
+                        </div>
+                        <div style="padding: 1.5rem;">
+                            <h3>123 City Road</h3>
+                            <p style="color: var(--gray-text); margin-bottom: 1rem;">Auckland Central</p>
+                            
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <div>
+                                    <div style="font-size: 0.9rem; color: var(--gray-text);">Rooms</div>
+                                    <div style="font-weight: 600;">3 / 3 Occupied</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 0.9rem; color: var(--gray-text);">Monthly Income</div>
+                                    <div style="font-weight: 600;">$1,750</div>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between;">
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-cog" style="margin-right: 0.5rem;"></i>
+                                    Manage
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-chart-line" style="margin-right: 0.5rem;"></i>
+                                    Performance
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                     -->
+                    <!-- Property 2 -->
+                    <!-- <div class="card" style="padding: 0; overflow: hidden;">
+                        <div style="position: relative;">
+                            <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Shared House" style="width: 100%; height: 200px; object-fit: cover;">
+                            <div style="position: absolute; top: 10px; right: 10px; padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: 500; background-color: rgba(255, 255, 255, 0.9);">
+                                <span class="property-status status-maintenance">Maintenance Needed</span>
+                            </div>
+                        </div>
+                        <div style="padding: 1.5rem;">
+                            <h3>45 Beach Road</h3>
+                            <p style="color: var(--gray-text); margin-bottom: 1rem;">Auckland Central</p>
+                            
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <div>
+                                    <div style="font-size: 0.9rem; color: var(--gray-text);">Rooms</div>
+                                    <div style="font-weight: 600;">1 / 2 Occupied</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 0.9rem; color: var(--gray-text);">Monthly Income</div>
+                                    <div style="font-weight: 600;">$700</div>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between;">
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-cog" style="margin-right: 0.5rem;"></i>
+                                    Manage
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-chart-line" style="margin-right: 0.5rem;"></i>
+                                    Performance
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Property 3 -->
+                    <!-- <div class="card" style="padding: 0; overflow: hidden;">
+                        <div style="position: relative;">
+                            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Apartment with View" style="width: 100%; height: 200px; object-fit: cover;">
+                            <div style="position: absolute; top: 10px; right: 10px; padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: 500; background-color: rgba(255, 255, 255, 0.9);">
+                                <span class="property-status status-occupied">Fully Occupied</span>
+                            </div>
+                        </div>
+                        <div style="padding: 1.5rem;">
+                            <h3>87 Mountain View</h3>
+                            <p style="color: var(--gray-text); margin-bottom: 1rem;">Wellington</p>
+                            
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <div>
+                                    <div style="font-size: 0.9rem; color: var(--gray-text);">Rooms</div>
+                                    <div style="font-weight: 600;">1 / 1 Occupied</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 0.9rem; color: var(--gray-text);">Monthly Income</div>
+                                    <div style="font-weight: 600;">$1,000</div>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between;">
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-cog" style="margin-right: 0.5rem;"></i>
+                                    Manage
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-chart-line" style="margin-right: 0.5rem;"></i>
+                                    Performance
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- Tenants Section -->
+            <!-- <div id="tenants-section" class="dashboard-section" style="display: none;"> 
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2>Tenant Management</h2>
+                    <div>
+                        <button class="btn btn-outline btn-sm" style="margin-right: 0.5rem;">
+                            <i class="fas fa-filter" style="margin-right: 0.5rem;"></i>
+                            Filter
+                        </button>
+                        <button class="btn btn-secondary btn-sm">
+                            <i class="fas fa-plus" style="margin-right: 0.5rem;"></i>
+                            Add Tenant
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; min-width: 900px; border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Tenant</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Property</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Room</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Lease Start</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Lease End</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Rent</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Status</th>
+                                    <th style="text-align: center; padding: 1rem; border-bottom: 1px solid #eee;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: #ddd; margin-right: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #777;">JD</div>
+                                            <div>
+                                                <div style="font-weight: 500;">John Davis</div> 
+                                                <div style="font-size: 0.8rem; color: var(--gray-text);">john.davis@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">123 City Road</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Room 1</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Jan 15, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Jan 14, 2026</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">$650 /month</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(46, 204, 113, 0.15); color: #2ecc71;">
+                                            Current
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: #ddd; margin-right: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #777;">SS</div>
+                                            <div>
+                                                <div style="font-weight: 500;">Sarah Smith</div>
+                                                <div style="font-size: 0.8rem; color: var(--gray-text);">sarah.smith@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">123 City Road</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Room 2</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 20, 2024</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 19, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">$600 /month</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(241, 196, 15, 0.15); color: #f1c40f;">
+                                            Renewal Due
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: #ddd; margin-right: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #777;">MB</div>
+                                            <div>
+                                                <div style="font-weight: 500;">Michael Brown</div>
+                                                <div style="font-size: 0.8rem; color: var(--gray-text);">michael.b@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">123 City Road</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Room 3</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Feb 10, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Feb 9, 2026</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">$500 /month</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(46, 204, 113, 0.15); color: #2ecc71;">
+                                            Current
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: #ddd; margin-right: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #777;">EJ</div>
+                                            <div>
+                                                <div style="font-weight: 500;">Emma Johnson</div>
+                                                <div style="font-size: 0.8rem; color: var(--gray-text);">emma.j@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">45 Beach Road</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Room 1</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Nov 5, 2024</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Nov 4, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">$700 /month</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(46, 204, 113, 0.15); color: #2ecc71;">
+                                            Current
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: #ddd; margin-right: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #777;">DW</div>
+                                            <div>
+                                                <div style="font-weight: 500;">David Wilson</div>
+                                                <div style="font-size: 0.8rem; color: var(--gray-text);">david.w@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">87 Mountain View</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Room 1</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 8, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 7, 2026</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">$1,000 /month</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(46, 204, 113, 0.15); color: #2ecc71;">
+                                            Current
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+             </div> -->
+            
+            <!-- Maintenance Section -->
+            <!-- <div id="maintenance-section" class="dashboard-section" style="display: none;"> 
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2>Maintenance Requests</h2>
+                    <div>
+                        <button class="btn btn-outline btn-sm" style="margin-right: 0.5rem;">
+                            <i class="fas fa-filter" style="margin-right: 0.5rem;"></i>
+                            Filter
+                        </button>
+                        <button class="btn btn-secondary btn-sm">
+                            <i class="fas fa-plus" style="margin-right: 0.5rem;"></i>
+                            Create Request
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <ul class="tabs">
+                        <li class="tab active">All Requests (2)</li>
+                        <li class="tab">Open (1)</li>
+                        <li class="tab">In Progress (1)</li>
+                        <li class="tab">Completed (0)</li>
+                    </ul>
+                    
+                    <div style="overflow-x: auto; margin-top: 1.5rem;">
+                        <table style="width: 100%; min-width: 900px; border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">ID</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Date</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Property</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Issue Type</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Reported By</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Priority</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Status</th>
+                                    <th style="text-align: center; padding: 1rem; border-bottom: 1px solid #eee;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">#MR-2025-001</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 10, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">45 Beach Road</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Plumbing</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Emma Johnson</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(231, 76, 60, 0.15); color: #e74c3c;">
+                                            High
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(241, 196, 15, 0.15); color: #f1c40f;">
+                                            In Progress
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">#MR-2025-002</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 12, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">123 City Road</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Electrical</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">John Davis</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(52, 152, 219, 0.15); color: #3498db;">
+                                            Medium
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(52, 152, 219, 0.15); color: #3498db;">
+                                            Open
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Financials Section -->
+            <!-- <div id="financials-section" class="dashboard-section" style="display: none;"> 
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2>Financial Overview</h2>
+                    <div>
+                        <button class="btn btn-outline btn-sm" style="margin-right: 0.5rem;">
+                            <i class="fas fa-download" style="margin-right: 0.5rem;"></i>
+                            Export
+                        </button>
+                        <button class="btn btn-secondary btn-sm">
+                            <i class="fas fa-plus" style="margin-right: 0.5rem;"></i>
+                            Record Payment
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Financial Summary -->
+                <!-- <div class="grid grid-3">
+                    <div class="stat-card">
+                        <div style="color: var(--gray-text); font-size: 0.9rem;">Monthly Income</div>
+                        <div class="stat-value">$3,450</div>
+                        <div style="color: var(--accent-color); font-size: 0.9rem;">
+                            <i class="fas fa-arrow-up" style="margin-right: 0.25rem;"></i>
+                            15% from last month
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div style="color: var(--gray-text); font-size: 0.9rem;">Monthly Expenses</div>
+                        <div class="stat-value">$780</div>
+                        <div style="color: var(--gray-text); font-size: 0.9rem;">
+                            <i class="fas fa-equals" style="margin-right: 0.25rem;"></i>
+                            Same as last month
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div style="color: var(--gray-text); font-size: 0.9rem;">Net Income</div>
+                        <div class="stat-value">$2,670</div>
+                        <div style="color: var(--accent-color); font-size: 0.9rem;">
+                            <i class="fas fa-arrow-up" style="margin-right: 0.25rem;"></i>
+                            20% from last month
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Transaction History -->
+                <!-- <div class="card" style="margin-top: 2rem;"> 
+                    <h3>Recent Transactions</h3>
+                    
+                    <div style="overflow-x: auto; margin-top: 1.5rem;">
+                        <table style="width: 100%; min-width: 900px; border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Date</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Property</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Description</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Category</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Amount</th>
+                                    <th style="text-align: left; padding: 1rem; border-bottom: 1px solid #eee;">Type</th>
+                                    <th style="text-align: center; padding: 1rem; border-bottom: 1px solid #eee;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 12, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">123 City Road</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Rent Payment - Room 1</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Rent</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; color: #2ecc71;">+$650</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(46, 204, 113, 0.15); color: #2ecc71;">
+                                            Income
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 10, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">45 Beach Road</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Plumbing Repair</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Maintenance</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; color: #e74c3c;">-$150</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(231, 76, 60, 0.15); color: #e74c3c;">
+                                            Expense
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 8, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">87 Mountain View</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Rent Payment - Room 1</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Rent</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; color: #2ecc71;">+$1,000</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(46, 204, 113, 0.15); color: #2ecc71;">
+                                            Income
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 5, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">123 City Road</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Property Insurance</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Insurance</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; color: #e74c3c;">-$280</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(231, 76, 60, 0.15); color: #e74c3c;">
+                                            Expense
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mar 3, 2025</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">45 Beach Road</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Rent Payment - Room 1</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">Rent</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; color: #2ecc71;">+$700</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee;">
+                                        <span style="padding: 0.25rem 0.5rem; border-radius: 50px; font-size: 0.8rem; background-color: rgba(46, 204, 113, 0.15); color: #2ecc71;">
+                                            Income
+                                        </span>
+                                    </td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">
+                                        <button class="btn btn-text">View</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Documents Section -->
+            <!-- <div id="documents-section" class="dashboard-section" style="display: none;"> 
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2>Documents & Files</h2>
+                    <div>
+                        <button class="btn btn-outline btn-sm" style="margin-right: 0.5rem;">
+                            <i class="fas fa-folder-plus" style="margin-right: 0.5rem;"></i>
+                            New Folder
+                        </button>
+                        <button class="btn btn-secondary btn-sm">
+                            <i class="fas fa-upload" style="margin-right: 0.5rem;"></i>
+                            Upload Files
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-3">
+                    <div>
+                        <h3>Lease Agreements</h3>
+                        
+                        <a href="#" class="document-link">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 500;">123 City Road - Room 1 Lease</div>
+                                <div style="font-size: 0.8rem; color: var(--gray-text);">PDF • 2.4 MB • Updated Mar 1, 2025</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="document-link">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 500;">123 City Road - Room 2 Lease</div>
+                                <div style="font-size: 0.8rem; color: var(--gray-text);">PDF • 2.2 MB • Updated Mar 20, 2024</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="document-link">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 500;">123 City Road - Room 3 Lease</div>
+                                <div style="font-size: 0.8rem; color: var(--gray-text);">PDF • 2.3 MB • Updated Feb 10, 2025</div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div>
+                        <h3>Inspection Reports</h3>
+                        
+                        <a href="#" class="document-link">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 500;">123 City Road - March 2025 Inspection</div>
+                                <div style="font-size: 0.8rem; color: var(--gray-text);">PDF • 4.1 MB • Added Mar 5, 2025</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="document-link">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 500;">45 Beach Road - February 2025 Inspection</div>
+                                <div style="font-size: 0.8rem; color: var(--gray-text);">PDF • 3.8 MB • Added Feb 15, 2025</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="document-link">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 500;">87 Mountain View - March 2025 Inspection</div>
+                                <div style="font-size: 0.8rem; color: var(--gray-text);">PDF • 3.2 MB • Added Mar 8, 2025</div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div>
+                        <h3>Property Documents</h3>
+                        
+                        <a href="#" class="document-link">
+                            <div class="document-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 500;">Insurance Policies 2025</div>
+                                <div style="font-size: 0.8rem; color: var(--gray-text);">PDF • 5.6 MB • Updated Jan 10, 2025</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="document-link">
+                            <div class="document-icon">
+                                <i class="fas fa-file-excel"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 500;">2024 Financial Summary</div>
+                                <div style="font-size: 0.8rem; color: var(--gray-text);">XLSX • 1.2 MB • Updated Jan 15, 2025</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="document-link">
+                            <div class="document-icon">
+                                <i class="fas fa-file-word"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 500;">Property Management Agreement</div>
+                                <div style="font-size: 0.8rem; color: var(--gray-text);">DOCX • 0.8 MB • Updated Dec 1, 2024</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Notifications Section -->
+            <!-- <div id="notifications-section" class="dashboard-section" style="display: none;"> 
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2>Notifications</h2>
+                    <div>
+                        <button class="btn btn-outline btn-sm">
+                            <i class="fas fa-check-double" style="margin-right: 0.5rem;"></i>
+                            Mark All as Read
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; padding: 1rem; border-radius: 10px; background-color: rgba(13, 60, 95, 0.05);">
+                            <div style="width: 50px; height: 50px; background-color: rgba(231, 76, 60, 0.1); color: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 0.25rem;">New Maintenance Request</h4>
+                                <p style="color: var(--gray-text); margin: 0 0 0.5rem; font-size: 0.9rem;">A new maintenance request has been submitted for 123 City Road - Room 1 by John Davis.</p>
+                                <div style="display: flex; align-items: center; font-size: 0.8rem; color: var(--gray-text);">
+                                    <i class="fas fa-clock" style="margin-right: 0.25rem;"></i>
+                                    <span>2 hours ago</span>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-text btn-sm">View</button>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; padding: 1rem; border-radius: 10px; background-color: rgba(13, 60, 95, 0.05);">
+                            <div style="width: 50px; height: 50px; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 0.25rem;">Rent Payment Received</h4>
+                                <p style="color: var(--gray-text); margin: 0 0 0.5rem; font-size: 0.9rem;">Rent payment of $650 has been received from John Davis for 123 City Road - Room 1.</p>
+                                <div style="display: flex; align-items: center; font-size: 0.8rem; color: var(--gray-text);">
+                                    <i class="fas fa-clock" style="margin-right: 0.25rem;"></i>
+                                    <span>5 hours ago</span>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-text btn-sm">View</button>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; padding: 1rem; border-radius: 10px; background-color: rgba(13, 60, 95, 0.05);">
+                            <div style="width: 50px; height: 50px; background-color: rgba(241, 196, 15, 0.1); color: #f1c40f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 0.25rem;">Lease Renewal Reminder</h4>
+                                <p style="color: var(--gray-text); margin: 0 0 0.5rem; font-size: 0.9rem;">The lease for Sarah Smith at 123 City Road - Room 2 will expire in 9 days (Mar 19, 2025).</p>
+                                <div style="display: flex; align-items: center; font-size: 0.8rem; color: var(--gray-text);">
+                                    <i class="fas fa-clock" style="margin-right: 0.25rem;"></i>
+                                    <span>10 hours ago</span>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-text btn-sm">View</button>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; padding: 1rem; border-radius: 10px; background-color: rgba(13, 60, 95, 0.05);">
+                            <div style="width: 50px; height: 50px; background-color: rgba(52, 152, 219, 0.1); color: #3498db; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 0.25rem;">Inspection Scheduled</h4>
+                                <p style="color: var(--gray-text); margin: 0 0 0.5rem; font-size: 0.9rem;">A property inspection has been scheduled for 87 Mountain View on March 15, 2025 at 10:00 AM.</p>
+                                <div style="display: flex; align-items: center; font-size: 0.8rem; color: var(--gray-text);">
+                                    <i class="fas fa-clock" style="margin-right: 0.25rem;"></i>
+                                    <span>1 day ago</span>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-text btn-sm">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>  -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 style="font-size: 2rem;">Find A Room</h4>
+                    <!-- <p>Connecting quality tenants with great shared living spaces across New Zealand.</p> -->
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1D2576aVEp/?mibextid=wwXIfr" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <!-- <li><a href="landlords.html">Landlord Services</a></li> -->
+                        <li><a href="tenants.html">Tenant Resources</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.trademe.co.nz/a/search?member_listing=8900509">Rental Listings</a></li>
+                        <li><a href="owner-portal.html">Owner Portal</a></li>
+                        <li><a href="payment-collection.html">Payment Collection</a></li>
+                        <li><a href="maintenance-request.html">Maintenance Requests</a></li>
+                        <li><a href="tenant-services.html">Tenant Services</a></li>
+                        <li><a href="rental-application.html">Rental Application</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 
+                            355A, Maunganui Road Mount Maunganui, 3116 Tauranga
+                            NEW ZEALAND</li>
+                        <li><i class="fas fa-phone"></i> +64 21 1012737</li>
+                        <li><i class="fas fa-envelope"></i> support@findaroom.co.nz</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p style="font-size:15px ;">&copy; 2024 Find A Room. All rights reserved.</p>
+                <p style="font-size: 11px;"> Developed by International Data Solution</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Toggle Password Visibility
+        const togglePassword = document.getElementById('toggle-password');
+        const passwordInput = document.getElementById('password');
+        
+        if (togglePassword && passwordInput) {
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                
+                // Toggle the eye icon
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+        }
+        
+        // Demo Login
+        const loginForm = document.getElementById('login-form');
+        const loginSection = document.getElementById('login-section');
+        const dashboardSection = document.getElementById('dashboard-section');
+        const viewDemoButton = document.getElementById('view-demo');
+        
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Hide login, show dashboard
+                loginSection.style.display = 'none';
+                dashboardSection.style.display = 'block';
+            });
+        }
+        
+        if (viewDemoButton) {
+            viewDemoButton.addEventListener('click', function() {
+                // Hide login, show dashboard
+                loginSection.style.display = 'none';
+                dashboardSection.style.display = 'block';
+            });
+        }
+        
+        // Dashboard Navigation
+        const dashboardNavLinks = document.querySelectorAll('.dashboard-nav-link');
+        const dashboardSections = document.querySelectorAll('.dashboard-section');
+        
+        if (dashboardNavLinks.length > 0) {
+            dashboardNavLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    
+                    // Remove active class from all links
+                    dashboardNavLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    dashboardSections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Show the target section
+                    const targetSection = document.getElementById(this.getAttribute('data-target'));
+                    if (targetSection) {
+                        targetSection.style.display = 'block';
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

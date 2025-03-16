@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenant Services - Find A Room</title>
+    <meta name="description"
+        content="Comprehensive services for tenants in shared accommodations - Find A Room provides maintenance, support, and resources for a comfortable living experience.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="logo.jpg" alt="Find A Room Logo">
+                    <span class="logo-text">Find A Room</span>
+                </a>
+
+                <button class="mobile-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Landlords <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <!-- <a href="landlords.html" class="dropdown-item">Overview</a> -->
+                                <a href="owner-portal.html" class="dropdown-item">Owner Portal</a>
+                                <a href="payment-collection.html" class="dropdown-item">Payment Collection</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Tenants <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="tenants.html" class="dropdown-item">Overview</a>
+                                <a href="rental-application.html" class="dropdown-item">Rental Application</a>
+                                <a href="https://www.trademe.co.nz/a/search?member_listing=8900509"
+                                    class="dropdown-item">Rental Listings</a>
+                                <a href="tenant-services.html" class="dropdown-item">Tenant Services</a>
+                                <a href="maintenance-request.html" class="dropdown-item">Maintenance Request</a>
+                                <!-- <a href="notice-request.html" class="dropdown-item">Notice Request</a> -->
+                                <a href="notice-vacate.html" class="dropdown-item">Notice to Vacate</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Tenant Services</h1>
+                <p>Comprehensive support and services for a comfortable shared living experience.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-secondary">Our Services</a>
+                    <a href="contact.html" class="btn btn-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Find Your Perfect Place: Tenant Services at Find a Room</h2>
+                <p class="section-description">
+                    Welcome to Find a Room, your one-stop shop for a stress-free rental experience! We understand that
+                    finding a great place to live is important, and we’re here to help you every step of the way. Here’s
+                    what we offer tenants:.
+                </p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Effortless Search</h3>
+                    <p>
+                        Find your dream digs with ease! Utilize our user-friendly platform and powerful filters to
+                        search by location, budget, amenities, and even roommate preferences.
+                    </p>
+                    <a href="https://www.trademe.co.nz/a/search?member_listing=8900509" class="btn btn-outline"
+                        style="width: 100%; margin-top: 1rem;">Browse Listings</a>
+                </div>
+
+                <div class="card text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Imagine Yourself</h3>
+                    <p>
+                        Picture yourself relaxing in a sunny balcony or enjoying movie nights in a spacious living room
+                        – the possibilities are
+                        endless.
+                    </p>
+                    <a href="notice-request.html" class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Submit
+                        Request</a>
+                </div>
+
+                <div class="card text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Maintenance Support</h3>
+                    <p>
+                        Quick response to maintenance issues and regular property upkeep to ensure a comfortable living
+                        environment.
+                    </p>
+                    <a href="maintenance-request.html" class="btn btn-outline"
+                        style="width: 100%; margin-top: 1rem;">Request Service</a>
+                </div>
+
+                <div class="card text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Clear Communication</h3>
+                    <p>
+                        Maintain clear communication with your landlord. Our platform facilitates seamless
+                        communication, ensuring your requests are received and addressed promptly.
+                    </p>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Learn More</a>
+                </div>
+
+                <div class="card text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Submit Notice to Vacate</h3>
+                    <p>
+                        Moving on? No problem! Submit your notice to vacate electronically through our platform. We’ll guide you through the process to ensure a smooth and hassle-free transition.
+
+                    </p>
+                    <a href="notice-vacate.html" class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Contact Us</a>
+                </div>
+
+                <div class="card text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Payment Solutions</h3>
+                    <p>
+                        Convenient and secure payment options for rent and other fees, with clear financial records.
+                    </p>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tenant Resources -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Tenant Resources</h2>
+                <p class="section-description">
+                    Access resources and tools to make your rental experience smoother and more enjoyable.
+                </p>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="card">
+                    <div style="display: flex; align-items: flex-start;">
+                        <div
+                            style="width: 50px; height: 50px; border-radius: 10px; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                            <i class="fas fa-book-open" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div>
+                            <h3>Tenancy Guides</h3>
+                            <p>
+                                Access comprehensive guides on tenant rights, responsibilities, and shared living best
+                                practices.
+                            </p>
+                            <a href="contact.html" class="btn btn-text">Access Guides <i class="fas fa-chevron-right"
+                                    style="margin-left: 0.25rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="display: flex; align-items: flex-start;">
+                        <div
+                            style="width: 50px; height: 50px; border-radius: 10px; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                            <i class="fas fa-clipboard-check" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div>
+                            <h3>Move-In Checklist</h3>
+                            <p>
+                                A comprehensive checklist to ensure a smooth transition when moving into your new shared
+                                accommodation.
+                            </p>
+                            <a href="contact.html" class="btn btn-text">Download Checklist <i
+                                    class="fas fa-chevron-right" style="margin-left: 0.25rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="display: flex; align-items: flex-start;">
+                        <div
+                            style="width: 50px; height: 50px; border-radius: 10px; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                            <i class="fas fa-comments" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div>
+                            <h3>Roommate Agreement Template</h3>
+                            <p>
+                                A customizable template to establish clear expectations and responsibilities among
+                                roommates.
+                            </p>
+                            <a href="contact.html" class="btn btn-text">Get Template <i class="fas fa-chevron-right"
+                                    style="margin-left: 0.25rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="display: flex; align-items: flex-start;">
+                        <div
+                            style="width: 50px; height: 50px; border-radius: 10px; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                            <i class="fas fa-building" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div>
+                            <h3>Local Area Guides</h3>
+                            <p>
+                                Helpful information about neighborhoods, amenities, transportation, and services near
+                                our properties.
+                            </p>
+                            <a href="contact.html" class="btn btn-text">View Guides <i class="fas fa-chevron-right"
+                                    style="margin-left: 0.25rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Services -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Online Services</h2>
+                <p class="section-description">
+                    Access a range of convenient online services to manage your tenancy from anywhere, anytime.
+                </p>
+            </div>
+
+            <div class="card" style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+                <div class="grid grid-3">
+                    <a href="maintenance-request.html" class="service-link text-center">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div
+                                style="width: 70px; height: 70px; border-radius: 50%; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                                <i class="fas fa-tools" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            </div>
+                            <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Maintenance Request</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text);">
+                                Submit and track maintenance requests
+                            </p>
+                        </div>
+                    </a>
+
+                    <a href="notice-request.html" class="service-link text-center">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div
+                                style="width: 70px; height: 70px; border-radius: 50%; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                                <i class="fas fa-file-alt" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            </div>
+                            <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Notice Request</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text);">
+                                Submit lease modifications or extensions
+                            </p>
+                        </div>
+                    </a>
+
+                    <a href="notice-vacate.html" class="service-link text-center">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div
+                                style="width: 70px; height: 70px; border-radius: 50%; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                                <i class="fas fa-sign-out-alt"
+                                    style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            </div>
+                            <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Notice to Vacate</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text);">
+                                Submit your notice when moving out
+                            </p>
+                        </div>
+                    </a>
+
+                    <a href="contact.html" class="service-link text-center">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div
+                                style="width: 70px; height: 70px; border-radius: 50%; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                                <i class="fas fa-hand-holding-usd"
+                                    style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            </div>
+                            <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Rent Payments</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text);">
+                                View payment history and make payments
+                            </p>
+                        </div>
+                    </a>
+
+                    <a href="contact.html" class="service-link text-center">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div
+                                style="width: 70px; height: 70px; border-radius: 50%; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                                <i class="fas fa-clipboard-list"
+                                    style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            </div>
+                            <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Inspection Reports</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text);">
+                                Access property inspection reports
+                            </p>
+                        </div>
+                    </a>
+
+                    <a href="contact.html" class="service-link text-center">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div
+                                style="width: 70px; height: 70px; border-radius: 50%; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                                <i class="fas fa-file-contract"
+                                    style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            </div>
+                            <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Documents</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text);">
+                                Access lease and important documents
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p style="margin-bottom: 1rem;">Need a tenant portal account? Contact us to get set up.</p>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <!-- <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title text-center">What Our Tenants Say</h2>
+            
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div class="grid grid-2">
+                    <div class="card" style="padding: 1.5rem;">
+                        <div style="display: flex; margin-bottom: 1rem;">
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        </div>
+                        <blockquote style="font-style: italic; margin-bottom: 1.5rem; color: var(--gray-text);">
+                            "The maintenance service at Find A Room is exceptional. I reported a plumbing issue one morning, and a plumber was at my door by the afternoon. Their tenant services are top-notch and make shared living so much easier."
+                        </blockquote>
+                        <div>
+                            <p style="font-weight: 600; color: var(--primary-color);">Emma Thompson</p>
+                            <p style="color: var(--gray-text);">Tenant, Wellington</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card" style="padding: 1.5rem;">
+                        <div style="display: flex; margin-bottom: 1rem;">
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        </div>
+                        <blockquote style="font-style: italic; margin-bottom: 1.5rem; color: var(--gray-text);">
+                            "I've rented through several agencies, but Find A Room's tenant services are truly outstanding. Their roommate matching service helped me find the perfect flatmates, and their online maintenance request system is so convenient."
+                        </blockquote>
+                        <div>
+                            <p style="font-weight: 600; color: var(--primary-color);">David Chen</p>
+                            <p style="color: var(--gray-text);">Tenant, Auckland</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card" style="padding: 1.5rem;">
+                        <div style="display: flex; margin-bottom: 1rem;">
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star-half-alt" style="color: var(--accent-color);"></i>
+                        </div>
+                        <blockquote style="font-style: italic; margin-bottom: 1.5rem; color: var(--gray-text);">
+                            "When I needed to extend my lease, the process was seamless. The team at Find A Room was responsive and handled everything professionally. Their tenant resources are also really helpful for navigating shared living situations."
+                        </blockquote>
+                        <div>
+                            <p style="font-weight: 600; color: var(--primary-color);">Sophie Williams</p>
+                            <p style="color: var(--gray-text);">Tenant, Christchurch</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card" style="padding: 1.5rem;">
+                        <div style="display: flex; margin-bottom: 1rem;">
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                            <i class="fas fa-star" style="color: var(--accent-color);"></i>
+                        </div>
+                        <blockquote style="font-style: italic; margin-bottom: 1.5rem; color: var(--gray-text);">
+                            "Moving to a new city was stressful, but Find A Room made finding quality shared accommodation so much easier. Their property search service matched me with the perfect flat, and their ongoing support has been fantastic."
+                        </blockquote>
+                        <div>
+                            <p style="font-weight: 600; color: var(--primary-color);">James Wilson</p>
+                            <p style="color: var(--gray-text);">Tenant, Dunedin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container text-center">
+            <h2>Need Assistance with Your Tenancy?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem;">
+                Our tenant support team is here to help with any questions or concerns.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                <a href="tel:+6491234567" class="btn btn-outline">
+                    <i class="fas fa-phone" style="margin-right: 0.5rem;"></i> +64 21 1012737
+                </a>
+            </div>
+
+            <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div
+                        style="width: 70px; height: 70px; border-radius: 50%; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-clock" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Office Hours</h3>
+                    <p style="font-size: 0.9rem; color: var(--gray-text);">
+                        Monday-Friday: 9am-5pm<br>
+                        Saturday: 10am-2pm<br>
+                        Sunday: Closed
+                    </p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div
+                        style="width: 70px; height: 70px; border-radius: 50%; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-exclamation-circle"
+                            style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Emergency Line</h3>
+                    <p style="font-size: 0.9rem; color: var(--gray-text);">
+                        For after-hours emergencies:<br>
+                        +64 21 1012737
+                    </p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div
+                        style="width: 70px; height: 70px; border-radius: 50%; background-color: rgba(13, 60, 95, 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-envelope" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Email Support</h3>
+                    <p style="font-size: 0.9rem; color: var(--gray-text);">
+                        support@findaroom.co.nz<br>
+                        Response within 24 hours
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 style="font-size: 2rem;">Find A Room</h4>
+                    <!-- <p>Connecting quality tenants with great shared living spaces across New Zealand.</p> -->
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1D2576aVEp/?mibextid=wwXIfr" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <!-- <li><a href="landlords.html">Landlord Services</a></li> -->
+                        <li><a href="tenants.html">Tenant Resources</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.trademe.co.nz/a/search?member_listing=8900509">Rental Listings</a></li>
+                        <li><a href="owner-portal.html">Owner Portal</a></li>
+                        <li><a href="payment-collection.html">Payment Collection</a></li>
+                        <li><a href="maintenance-request.html">Maintenance Requests</a></li>
+                        <li><a href="tenant-services.html">Tenant Services</a></li>
+                        <li><a href="rental-application.html">Rental Application</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 
+                            355A, Maunganui Road Mount Maunganui, 3116 Tauranga
+                            NEW ZEALAND</li>
+                        <li><i class="fas fa-phone"></i> +64 21 1012737</li>
+                        <li><i class="fas fa-envelope"></i> support@findaroom.co.nz</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p style="font-size:15px ;">&copy; 2024 Find A Room. All rights reserved.</p>
+                <p style="font-size: 11px;"> Developed by International Data Solution</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
