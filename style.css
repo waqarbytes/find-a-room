@@ -95,7 +95,7 @@ p {
 .section-description {
     max-width: 600px;
     margin: 0 auto 3rem;
-    color: var(--gray-text);
+    color: black;
     font-size: 0.9rem;
 }
 
